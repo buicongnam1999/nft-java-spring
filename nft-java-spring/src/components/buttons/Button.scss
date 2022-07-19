@@ -1,0 +1,49 @@
+.btn {
+    padding: 14px 28px !important;
+    font-size: 16px;
+    cursor: pointer;
+}
+.success {
+    border: 2px solid #04aa6d;
+    color: green;
+}
+
+.success:hover {
+    background-color: #04aa6d;
+    color: white;
+}
+.info {
+    border: 2px solid #2196f3;
+    color: dodgerblue;
+}
+
+.info:hover {
+    background: #2196f3;
+    color: white;
+}
+.warning {
+    border: 2px solid #ff9800;
+    color: orange;
+}
+
+.warning:hover {
+    background: #ff9800;
+    color: white;
+}
+.danger {
+    border: 2px solid #f44336 !important;
+    color: red !important;
+}
+
+.danger:hover {
+    background: #f44336;
+    color: white !important;
+}
+.default {
+    border: 2px solid #e7e7e7;
+    color: black;
+}
+
+.default:hover {
+    background: #e7e7e7;
+}
