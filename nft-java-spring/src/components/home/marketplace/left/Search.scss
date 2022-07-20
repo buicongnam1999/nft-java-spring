@@ -1,0 +1,29 @@
+.search {
+    margin: 25px 0;
+    width: 80%;
+    border-radius: 8px;
+    height: 60px;
+    background: #1E1F28;
+    .search-input{
+        display: flex;
+        width: 100%;
+        .search-input-icon{
+            margin-left: 15px;
+            line-height: 60px;
+        }
+        .search-input-text {
+            input[type="text"] {
+                font-family: Odibee Sans;
+                font-weight: 400px;
+                font-size: 20px;
+                width: 100%;
+                border: none;
+                background-color: #1E1F28;
+                line-height: 60px;
+                padding: 0 15px;
+                outline: none;
+                color: white;
+            }
+        }
+    }
+}
