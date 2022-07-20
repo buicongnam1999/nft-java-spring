@@ -47,3 +47,63 @@
 .default:hover {
     background: #e7e7e7;
 }
+
+.button-pieces {
+    background-color: #55cccc;
+    font-family: Biger Over;
+    // padding: 10px;
+    color: black;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 44px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.button-complete {
+    background-color: #1e1f28;
+    font-family: Biger Over;
+    padding: 10px 5px;
+    color: #55cccc;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-reset {
+    color: #F25AC9;
+    font-family: Odibee Sans;
+    font-size: 20px;
+    text-align: right;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1920px) {
+    .btn {
+        padding: 14px 28px !important;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .button-pieces {
+        
+    }
+    
+    .button-complete {
+
+    }
+}
+
+@media screen and (min-width: 1520px) {
+    .btn-design {
+        font-size: 13px;
+    }
+    
+    .button-pieces {
+
+    }
+    
+    .button-complete {
+
+    }
+}
