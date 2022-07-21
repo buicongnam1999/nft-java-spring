@@ -1,3 +1,113 @@
+$font-biger: Biger Over;
+$font-odibee: Odibee Sans;
+
 .market {
+    color: white;
     width: 100%;
+    background: #08090c;
+    border-bottom: 1px solid white;
+    padding-bottom: 25px;
+
+    .market-content {
+        margin-top: 25px;
+
+        .btn-group-market {
+
+            // border-bottom: 2px solid #2c2d3a;
+            .btn-group-search {
+                width: 85%;
+                display: grid;
+                column-gap: 20px;
+                grid-template-columns: auto auto;
+            }
+
+            @media screen and (max-width: 1520px) {
+                .btn-group-search {
+                    width: 60%;
+                    column-gap: 15px;
+                }
+            }
+
+            @media screen and (max-width: 1200px) {
+                .btn-group-search {
+                    width: 80%;
+                    column-gap: 10px;
+                }
+            }
+
+            .btn-group {
+                width: 115%;
+                margin: -20px 0 0 -20px;
+                border-bottom: 2px solid #2c2d3a;
+            }
+        }
+
+        .navbar-market {
+            font-family: $font-biger;
+
+            ul {
+
+                li {
+                    list-style: none;
+                    border-top: 1px solid #45D9FC;
+                    font-weight: 400px;
+                    line-height: 46px;
+                    cursor: pointer;
+
+                    i {
+                        cursor: pointer;
+                        float: right;
+                        line-height: 46px;
+                    }
+                }
+            }
+        }
+
+        .market-list {
+            margin: 20px 35px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid #45D9FC;
+            padding-bottom: 20px;
+            width: 90%;
+            .title-list {
+                font-family: $font-biger;
+                line-height: 40px;
+                font-size: 30px;
+            }
+
+            .market-sort {
+                display: flex;
+
+                .market-sort-text {
+                    font-family: $font-odibee;
+                    font-size: 24px;
+                }
+
+                .market-sort-select {
+                    margin-left: 20px;
+                    line-height: 40px;
+                    background-color: #1E1F28;
+                    font-size: 24px;
+                    font-weight: 200;
+
+                    select {
+                        font-family: $font-odibee;
+                        color: white;
+                        background-color: #1E1F28;
+                        border: none;
+                        outline: none;
+                        padding: 4px 10px;
+                    }
+                }
+            }
+        }
+
+        .list-nft {
+            width: 88%;
+            height: 100vh;
+            background-color: rgba(44, 45, 58, 0.6);
+            margin: 0 35px;
+        }
+    }
 }

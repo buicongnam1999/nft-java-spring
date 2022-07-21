@@ -78,3 +78,49 @@ export const routesHome = [
 export const ToastAlert = [
 
 ]
+
+export const sortList = [
+    {
+        type: 1,
+        name: "Last Listed"
+    },
+    {
+        type: 2,
+        name: "New Listed"
+    },
+    {
+        type: 3,
+        name: "Lowest Price"
+    },
+    {
+        type: 4,
+        name: "Hightest Price"
+    }
+]
+
+export const navbarMarket = [
+    {
+        name: "Body Part",
+        active: false,
+    },
+    {
+        name: "Rarity",
+        active: false,
+    },
+    {
+        name: "Family",
+        active: false,
+    },
+    {
+        name: "Robot",
+        active: false,
+    },
+    {
+        name: "Stats",
+        active: false,
+    },
+    {
+        name: "Antiquity",
+        active: false,
+    }
+]

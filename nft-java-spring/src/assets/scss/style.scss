@@ -1,4 +1,25 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('http://fonts.cdnfonts.com/css/odibee-sans');
+@font-face {
+    font-family: 'Biger Over';
+    src: url('../fonts/bBigerOver.otf') format('opentype');
+}
 * {
     margin: 0;
     padding: 0;
+}
+.container {
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 1920px) {
+    .container {
+        padding: 0;
+        max-width: 1900px;
+    }
+}
+@media screen and (min-width: 1520px) {
+    .container {
+        max-width: 1400px;
+    }
 }
