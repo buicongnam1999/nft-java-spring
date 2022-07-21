@@ -3,7 +3,7 @@ import React from 'react'
 export default function ButtonComplete() {
     return (
         <>
-            <div className='button-complete'>
+            <div className='btn-complete'>
                 Complete robot
             </div>
         </>

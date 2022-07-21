@@ -102,25 +102,88 @@ export const navbarMarket = [
     {
         name: "Body Part",
         active: false,
+        child: [
+            {
+                name: "All",
+                activeChild: false
+            },
+            {
+                name: "Core",
+                activeChild: false
+            },
+            {
+                name: "Right Arm",
+                activeChild: false
+            },
+            {
+                name: "Left Arm",
+                activeChild: false
+            },
+            {
+                name: "Legs",
+                activeChild: false
+            },
+        ],
+        type: "click"
     },
     {
         name: "Rarity",
         active: false,
+        child: [
+            {
+                name: "Common",
+                activeChild: false
+            },
+            {
+                name: "UnCommon",
+                activeChild: false
+            },
+            {
+                name: "Rare",
+                activeChild: false
+            },
+            {
+                name: "Epic",
+                activeChild: false
+            },
+            {
+                name: "Legendary",
+                activeChild: false
+            },
+        ],
+        type: "click"
     },
     {
         name: "Family",
         active: false,
+        child: [
+            {
+                name: "Humanoid",
+                activeChild: false
+            },
+            {
+                name: "Spider",
+                activeChild: false
+            },
+            {
+                name: "Flying",
+                activeChild: false
+            }
+        ],
+        type: "click"
     },
     {
         name: "Robot",
         active: false,
+        type: "select"
     },
     {
         name: "Stats",
         active: false,
+        type: "input"
     },
     {
         name: "Antiquity",
         active: false,
     }
-]
+] 

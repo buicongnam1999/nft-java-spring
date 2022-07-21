@@ -5,18 +5,51 @@ import Search from 'components/home/marketplace/left/Search';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ButtonPieces from 'components/buttons/ButtonPieces';
-import ButtonComplete from 'components/buttons/ButtonComplete';
+import ButtonPieces from 'components/home/buttons/ButtonPieces';
+import ButtonComplete from 'components/home/buttons/ButtonComplete';
 import SelectMarket from 'components/selects/SelectMarket';
-import ButtonResetMarket from 'components/buttons/ButtonResetMarket';
+import ButtonResetMarket from 'components/home/buttons/ButtonResetMarket';
 import { sortList, navbarMarket } from 'constants/index';
 import { renderNavMarket } from 'ultis/helper';
+import HeroCard from 'components/home/marketplace/nft/HeroCard';
 
 export default function MarketPlace() {
     const [defaultSelect, setDefaultSelect] = useState(0);
+    const [navbar, setNavbar] = useState(navbarMarket);
 
     const selectOption = (value) => {
         setDefaultSelect(value);
+    }
+
+    const openOrCloseNav = (name) => {
+        if (name) {
+            const newState = navbar.map(object => {
+                if (object.name === name) {
+                    return { ...object, active: !object.active }
+                }
+
+                return object;
+            });
+            setNavbar(newState);
+        }
+    }
+
+    const checkBox = (name) => {
+        if (name) {
+            const newState = navbar.map(object => {
+                if (object.child) {
+                    object.child.map((e) => {
+                        if (e.name === name) {
+                            return { ...e, activeChild: true }
+                        }
+                        return e;
+                    })
+                }
+
+                return object;
+            });
+            setNavbar(newState);
+        }
     }
     return (
         <>
@@ -63,7 +96,7 @@ export default function MarketPlace() {
                                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                                         </li>
                                     </ul> */}
-                                    {renderNavMarket(navbarMarket)}
+                                    {renderNavMarket(navbar, openOrCloseNav, checkBox)}
                                 </div>
                             </Col>
                             <Col>
@@ -81,7 +114,9 @@ export default function MarketPlace() {
                                     </div>
                                 </div>
                                 <div className='list-nft'>
-
+                                    <HeroCard />
+                                    <HeroCard />
+                                    <HeroCard />
                                 </div>
                             </Col>
                         </Row>

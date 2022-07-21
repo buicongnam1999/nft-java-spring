@@ -13,7 +13,7 @@ $font-odibee: Odibee Sans;
         }
     }
 
-    .footer-text {
+    &-text {
         margin-top: 15px;
 
         .footer-title {
@@ -46,7 +46,7 @@ $font-odibee: Odibee Sans;
         }
     }
 
-    .footer-team {
+    &-team {
         margin-top: 25px;
         display: flex;
         justify-content: center;
@@ -76,7 +76,7 @@ $font-odibee: Odibee Sans;
         }
     }
 
-    .footer-copyright {
+    &-copyright {
         border-top: 3px solid #45D9FC;
         font-family: Poppins;
         font-size: 12px;
@@ -84,9 +84,92 @@ $font-odibee: Odibee Sans;
         height: 50px;
         background: rgba(8, 9, 12, 0.8);
 
-        .footer-copyright-text {
+        &-text {
             float: left;
             width: 56%;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .footer {
+        .logo {
+            img {
+                margin-top: 15px;
+                height: 100px;
+            }
+        }
+    
+        &-text {
+            margin-top: 15px;
+    
+            .footer-title {
+                h2 {
+                    font-weight: 350;
+                }
+            }
+    
+            .footer-content {
+                margin: 0 auto;
+                width: 50%;
+    
+                .footer-content-text {
+                    text-align: justify;
+                }
+    
+                .footer-content-instagram {
+                    margin-top: 15px;
+    
+                    .logo-instagram img {
+                        width: 300px;
+                        height: 150px;
+                    }
+    
+                    .logo-hand img {
+                        width: 200px;
+                        padding-left: 20px;
+                    }
+                }
+            }
+        }
+    
+        &-team {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+    
+            .coin-icon {
+                cursor: pointer;
+            }
+    
+            &-info {
+                ul li {
+                    display: none;
+                }
+            }
+    
+            &-network {
+                display: flex;
+    
+                .network-element {
+                    cursor: pointer;
+                    padding: 0 8px;
+                }
+            }
+        }
+    
+        &-copyright {
+            border-top: 3px solid #45D9FC;
+            font-family: Poppins;
+            font-size: 12px;
+            line-height: 50px;
+            height: 50px;
+            background: rgba(8, 9, 12, 0.8);
+    
+            &-text {
+                float: left;
+                width: 56%;
+            }
         }
     }
 }

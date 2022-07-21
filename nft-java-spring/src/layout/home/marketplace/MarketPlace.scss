@@ -59,6 +59,61 @@ $font-odibee: Odibee Sans;
                         float: right;
                         line-height: 46px;
                     }
+
+                    ul {
+                        padding: 0;
+                    }
+
+                    ul li {
+                        border: none;
+                    }
+
+                    /* custom checkbox */
+                    .form-group {
+                        display: block;
+                        margin-bottom: 15px;
+                    }
+
+                    .form-group input {
+                        padding: 0;
+                        height: initial;
+                        width: initial;
+                        margin-bottom: 0;
+                        display: none;
+                        cursor: pointer;
+                    }
+
+                    .form-group label {
+                        position: relative;
+                        cursor: pointer;
+                    }
+
+                    .form-group label:before {
+                        content: "";
+                        -webkit-appearance: none;
+                        background-color: transparent;
+                        border: 2px solid #45d9fc;
+                        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+                        padding: 10px;
+                        display: inline-block;
+                        position: relative;
+                        vertical-align: middle;
+                        cursor: pointer;
+                        margin-right: 5px;
+                    }
+
+                    .form-group input:checked+label:after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 15px;
+                        left: 9px;
+                        width: 6px;
+                        height: 14px;
+                        border: solid #45d9fc;
+                        border-width: 0 2px 2px 0;
+                        transform: rotate(45deg);
+                    }
                 }
             }
         }
@@ -70,6 +125,7 @@ $font-odibee: Odibee Sans;
             border-bottom: 2px solid #45D9FC;
             padding-bottom: 20px;
             width: 90%;
+
             .title-list {
                 font-family: $font-biger;
                 line-height: 40px;
@@ -104,10 +160,21 @@ $font-odibee: Odibee Sans;
         }
 
         .list-nft {
-            width: 88%;
-            height: 100vh;
+            width: 80%;
+            height: auto;
             background-color: rgba(44, 45, 58, 0.6);
             margin: 0 35px;
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+        @media screen and (max-width: 1520px) {
+            .list-nft {
+                width: 90%;
+            }
+            .col-3 {
+                width: 100%;
+                column-gap: 15px;
+            }
         }
     }
 }
