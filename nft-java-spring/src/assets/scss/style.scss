@@ -21,5 +21,11 @@
 @media screen and (min-width: 1520px) {
     .container {
         max-width: 1400px;
+        width: 100%;
+    }
+    .row {
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
     }
 }

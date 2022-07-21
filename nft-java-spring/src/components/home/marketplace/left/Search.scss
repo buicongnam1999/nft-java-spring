@@ -1,17 +1,17 @@
 .search {
     margin: 20px 0;
-    width: 320px;
+    width: 100%;
     border-radius: 8px;
     height: 60px;
     background: #1e1f28;
-    .search-input {
+    &-input {
         display: flex;
         width: 320px;
-        .search-input-icon {
+        &-icon {
             margin-left: 15px;
             line-height: 55px;
         }
-        .search-input-text {
+        &-text {
             input[type="text"] {
                 font-family: Odibee Sans;
                 font-weight: 400px;
@@ -24,6 +24,18 @@
                 outline: none;
                 color: #C4C4C4;
             }
+            @media screen and (max-width: 800px) {
+                input[type="text"] {
+                    width: 110%;
+                    font-size: 13px;
+                }
+            }
         }
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    .search {
+        width: 100%;
     }
 }
