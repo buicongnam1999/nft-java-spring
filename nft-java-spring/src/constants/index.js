@@ -186,5 +186,4 @@ export const navbarMarket = [
         name: "Antiquity",
         active: false,
     }
-
-]
+] 

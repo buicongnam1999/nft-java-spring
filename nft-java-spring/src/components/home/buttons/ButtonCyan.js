@@ -1,5 +1,4 @@
-import React from 'react';
-import './Button.scss';
+import React from 'react'
 
 export default function ButtonCyan(props) {
     return (

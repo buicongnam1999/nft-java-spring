@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import Banner from 'components/home/marketplace/Banner';
-import './MarketPlace.scss'
+import './MarketPlace.scss';
 import Search from 'components/home/marketplace/left/Search';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ButtonPieces from 'components/home/buttons/ButtonPieces';
 import ButtonComplete from 'components/home/buttons/ButtonComplete';
-import SelectMarket from 'components/selects/SelectMarket';
+import SelectMarket from 'components/home/selects/SelectMarket';
 import ButtonResetMarket from 'components/home/buttons/ButtonResetMarket';
-import { sortList, navbarMarket } from 'constants/index';
 import { renderNavMarket } from 'ultis/helper';
-import HeroCard from 'components/home/marketplace/nft/HeroCard';
+import { sortList, navbarMarket } from 'constants/index';
+import HeroCard from 'components/home/nft/HeroCard';
+import ModalLoad from 'components/modal/ModalLoad';
 
 export default function MarketPlace() {
     const [defaultSelect, setDefaultSelect] = useState(0);
     const [navbar, setNavbar] = useState(navbarMarket);
-
+    const [showModal, setShowModal] = useState(true);
     const selectOption = (value) => {
         setDefaultSelect(value);
     }
@@ -55,7 +56,9 @@ export default function MarketPlace() {
     return (
         <>
             <div className='market'>
+                <ModalLoad showModal={showModal} onCloseModal={() => setShowModal(false)} />
                 <Banner />
+                MarketPlace
                 <div className='market-content'>
                     <Container>
                         <Row>
@@ -88,7 +91,6 @@ export default function MarketPlace() {
                                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                                         </li>
                                         <li>
-
                                             <span>Stats</span>
                                             <i class="fa fa-angle-down" aria-hidden="true"></i>
                                         </li>
@@ -115,6 +117,7 @@ export default function MarketPlace() {
                                     </div>
                                 </div>
                                 <div className='list-nft'>
+                                    <HeroCard />
                                     <HeroCard />
                                     <HeroCard />
                                     <HeroCard />
