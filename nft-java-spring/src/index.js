@@ -5,12 +5,14 @@ import reportWebVitals from './reportWebVitals';
 import './assets/scss/style.scss';
 import { Provider } from "react-redux";
 import store, { history } from 'redux/store';
+import Sound from 'components/home/Sound';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <App history={history}/>
+      <App history={history} />
+      <Sound />
     </React.StrictMode>
   </Provider>
 

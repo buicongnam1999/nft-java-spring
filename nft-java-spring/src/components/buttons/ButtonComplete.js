@@ -4,7 +4,7 @@ import './Button.scss';
 export default function ButtonComplete() {
     return (
         <>
-            <div className='btn-complete'>
+            <div className='button-complete'>
                 Complete robot
             </div>
         </>
