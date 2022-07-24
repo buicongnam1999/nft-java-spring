@@ -3,7 +3,7 @@ import './Button.scss';
 
 export default function ButtonPieces() {
     return (
-        <div className='btn-pieces'>
+        <div className='button-pieces'>
             Pieces
         </div>
     )

@@ -6,10 +6,11 @@ import Product from 'layout/admin/product';
 import LoginHome from 'layout/home/login/LoginHome';
 import HomePage from 'layout/home/HomePage';
 import MarketPlace from 'layout/home/marketplace/MarketPlace';
+import { HOME_PATH, LOGIN_GREETING_PATH, MARKET_PATH, ADMIN_PATH, NFT_PATH, USER_PATH } from 'configs/route_path';
 
 export const routesPage = [
     {
-        path: '/*',
+        path: HOME_PATH,
         component: <Home />,
         route: Route,
         child: [
@@ -21,7 +22,7 @@ export const routesPage = [
         ]
     },
     {
-        path: '/admin/*',
+        path: ADMIN_PATH,
         component: <Admin />,
         route: Route,
         child: [
@@ -41,17 +42,17 @@ export const routesPage = [
 
 export const routesAdmin = [
     {
-        path: '/',
+        path: ADMIN_PATH,
         component: <Product />,
         route: Route
     },
     {
-        path: '/user',
+        path: USER_PATH,
         component: <User />,
         route: Route
     },
     {
-        path: '/product',
+        path: NFT_PATH,
         component: <Product />,
         route: Route
     }
@@ -59,17 +60,17 @@ export const routesAdmin = [
 
 export const routesHome = [
     {
-        path: '/',
+        path: HOME_PATH,
         component: <HomePage />,
         route: Route
     },
     {
-        path: '/login',
+        path: LOGIN_GREETING_PATH,
         component: <LoginHome />,
         route: Route
     },
     {
-        path: '/market/*',
+        path: MARKET_PATH,
         component: <MarketPlace />,
         route: Route
     }
@@ -186,5 +187,4 @@ export const navbarMarket = [
         name: "Antiquity",
         active: false,
     }
-
-]
+] 

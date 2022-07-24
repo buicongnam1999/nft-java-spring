@@ -90,7 +90,7 @@ export default function Footer() {
                 </div>
                 <div className='footer-copyright'>
                     <div className='footer-copyright-text'>
-                        Copyright <i className="fa-solid fa-copyright"></i> 2022 Medabost. All right reserved.
+                        <span>Copyright</span> <i className="fa-solid fa-copyright"></i> <span>2022 Medabost. All right reserved.</span>
                     </div>
                 </div>
             </div>

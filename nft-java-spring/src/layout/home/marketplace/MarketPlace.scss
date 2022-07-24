@@ -5,6 +5,7 @@ $font-odibee: Odibee Sans;
     color: white;
     width: 100%;
     background: #08090c;
+    background: #08090c;
     border-bottom: 1px solid white;
     padding-bottom: 25px;
 
@@ -12,7 +13,6 @@ $font-odibee: Odibee Sans;
         margin-top: 25px;
 
         .btn-group-market {
-
             // border-bottom: 2px solid #2c2d3a;
             .btn-group-search {
                 width: 85%;
@@ -46,10 +46,9 @@ $font-odibee: Odibee Sans;
             font-family: $font-biger;
 
             ul {
-
                 li {
                     list-style: none;
-                    border-top: 1px solid #45D9FC;
+                    border-top: 1px solid #45d9fc;
                     font-weight: 400px;
                     line-height: 46px;
                     cursor: pointer;
@@ -58,16 +57,18 @@ $font-odibee: Odibee Sans;
                         cursor: pointer;
                         float: right;
                         line-height: 46px;
+                        -webkit-animation: glide 2s ease-in-out alternate infinite;
                     }
-
+                    @-webkit-keyframes glide {
+                        from {left:0px; top:0px;}
+                        to {left:0px; top:20px;}
+                    }
                     ul {
                         padding: 0;
                     }
-
                     ul li {
                         border: none;
                     }
-
                     /* custom checkbox */
                     .form-group {
                         display: block;
@@ -102,7 +103,7 @@ $font-odibee: Odibee Sans;
                         margin-right: 5px;
                     }
 
-                    .form-group input:checked+label:after {
+                    .form-group input:checked + label:after {
                         content: "";
                         display: block;
                         position: absolute;
@@ -122,7 +123,7 @@ $font-odibee: Odibee Sans;
             margin: 20px 35px;
             display: flex;
             justify-content: space-between;
-            border-bottom: 2px solid #45D9FC;
+            border-bottom: 2px solid #45d9fc;
             padding-bottom: 20px;
             width: 90%;
             .title-list {
@@ -134,22 +135,22 @@ $font-odibee: Odibee Sans;
             .market-sort {
                 display: flex;
 
-                .market-sort-text {
+                &-text {
                     font-family: $font-odibee;
                     font-size: 24px;
                 }
 
-                .market-sort-select {
+                &-select {
                     margin-left: 20px;
                     line-height: 40px;
-                    background-color: #1E1F28;
+                    background-color: #1e1f28;
                     font-size: 24px;
                     font-weight: 200;
 
                     select {
                         font-family: $font-odibee;
                         color: white;
-                        background-color: #1E1F28;
+                        background-color: #1e1f28;
                         border: none;
                         outline: none;
                         padding: 4px 10px;
@@ -166,14 +167,283 @@ $font-odibee: Odibee Sans;
             display: grid;
             grid-template-columns: auto auto;
         }
+
         @media screen and (max-width: 1520px) {
-            .list-nft {
-                width: 90%;
-            }
             .col-3 {
                 width: 100%;
                 column-gap: 15px;
             }
         }
     }
+}
+
+@media screen and (max-width: 1920px) {
+    .market {
+        color: white;
+        width: 100%;
+        background: #08090c;
+        background: #08090c;
+        border-bottom: 1px solid white;
+        padding-bottom: 25px;
+    
+        .market-content {
+            margin-top: 25px;
+    
+            .btn-group-market {
+                // border-bottom: 2px solid #2c2d3a;
+                .btn-group-search {
+                    width: 85%;
+                    display: grid;
+                    column-gap: 20px;
+                    grid-template-columns: auto auto;
+                }
+    
+                @media screen and (max-width: 1520px) {
+                    .btn-group-search {
+                        width: 60%;
+                        column-gap: 15px;
+                    }
+                }
+    
+                @media screen and (max-width: 1200px) {
+                    .btn-group-search {
+                        width: 80%;
+                        column-gap: 10px;
+                    }
+                }
+    
+                .btn-group {
+                    width: 115%;
+                    margin: -20px 0 0 -20px;
+                    border-bottom: 2px solid #2c2d3a;
+                }
+            }
+    
+            .navbar-market {
+                font-family: $font-biger;
+    
+                ul {
+                    li {
+                        list-style: none;
+                        border-top: 1px solid #45d9fc;
+                        font-weight: 400px;
+                        line-height: 46px;
+                        cursor: pointer;
+    
+                        i {
+                            cursor: pointer;
+                            float: right;
+                            line-height: 46px;
+                            -webkit-animation: glide 2s ease-in-out alternate infinite;
+                        }
+                        @-webkit-keyframes glide {
+                            from {left:0px; top:0px;}
+                            to {left:0px; top:20px;}
+                        }
+                        ul {
+                            padding: 0;
+                        }
+                        ul li {
+                            border: none;
+                        }
+                        /* custom checkbox */
+                        .form-group {
+                            display: block;
+                            margin-bottom: 15px;
+                        }
+    
+                        .form-group input {
+                            padding: 0;
+                            height: initial;
+                            width: initial;
+                            margin-bottom: 0;
+                            display: none;
+                            cursor: pointer;
+                        }
+    
+                        .form-group label {
+                            position: relative;
+                            cursor: pointer;
+                        }
+    
+                        .form-group label:before {
+                            content: "";
+                            -webkit-appearance: none;
+                            background-color: transparent;
+                            border: 2px solid #45d9fc;
+                            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+                            padding: 10px;
+                            display: inline-block;
+                            position: relative;
+                            vertical-align: middle;
+                            cursor: pointer;
+                            margin-right: 5px;
+                        }
+    
+                        .form-group input:checked + label:after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            top: 15px;
+                            left: 9px;
+                            width: 6px;
+                            height: 14px;
+                            border: solid #45d9fc;
+                            border-width: 0 2px 2px 0;
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+            }
+    
+            .market-list {
+                margin: 20px 35px;
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 2px solid #45d9fc;
+                padding-bottom: 20px;
+                width: 90%;
+                .title-list {
+                    font-family: $font-biger;
+                    line-height: 40px;
+                    font-size: 30px;
+                }
+    
+                .market-sort {
+                    display: flex;
+    
+                    &-text {
+                        font-family: $font-odibee;
+                        font-size: 24px;
+                    }
+    
+                    &-select {
+                        margin-left: 20px;
+                        line-height: 40px;
+                        background-color: #1e1f28;
+                        font-size: 24px;
+                        font-weight: 200;
+    
+                        select {
+                            font-family: $font-odibee;
+                            color: white;
+                            background-color: #1e1f28;
+                            border: none;
+                            outline: none;
+                            padding: 4px 10px;
+                        }
+                    }
+                }
+            }
+    
+            .list-nft {
+                width: 80%;
+                height: auto;
+                background-color: rgba(44, 45, 58, 0.6);
+                margin: 0 35px;
+                display: grid;
+                grid-template-columns: auto auto;
+            }
+    
+            @media screen and (max-width: 1520px) {
+                .col-3 {
+                    width: 100%;
+                    column-gap: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1520px) {
+    .market {
+        .market-content {
+            .btn-group-market {
+                .btn-group {
+                    width: 100%;
+                }
+            }
+
+            .market-list {
+                margin: 25px auto;
+                .market-sort {
+                    display: flex;
+    
+                    &-text {
+                        font-family: $font-odibee;
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .market {
+        .market-content {
+            .btn-group-market {
+
+                .btn-group {
+                    width: 100%;
+                }
+            }
+
+            .list-nft {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .market {
+        .market-content {
+            .btn-group-market {
+                .btn-group {
+                    width: 100%;
+                }
+            }
+    
+            .market-list {
+                .market-sort {
+                    display: flex;
+                    &-text {
+                        font-family: $font-odibee;
+                        font-size: 24px;
+                    }
+                }
+            }
+    
+            .list-nft {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 412px) {
+    .market {
+        .market-content {
+            .market-list {
+                margin: 0 auto 10px;
+                .market-sort {
+                    text-align: end;
+                    &-text {
+                        font-family: $font-odibee;
+                        font-size: 20px;
+                    }
+                }
+                .title-list {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 360px) {
+    
 }

@@ -1,7 +1,7 @@
-import { Route, Routes } from "react-router-dom";
 import ButtonCyan from "components/home/buttons/ButtonCyan";
 import ButtonSelectRobot from "components/home/buttons/ButtonSelectRobot";
 import CheckboxMarket from "components/home/checkbox/CheckboxMarket";
+import { Route, Routes, Link, useLocation } from "react-router-dom";
 
 const renderRouteChild = (params) => {
     let routes = <Route>
@@ -33,6 +33,24 @@ export const renderRoutes = (params) => {
     return routes;
 }
 
+export const renderNav = (params) => {
+    let navbar = <ul>
+        {
+            params && params.map((param) =>
+                param.active ?
+                    <li className="active" key={param.path}>
+                        <Link to={param.path}>{param.value}</Link>
+                    </li> :
+                    <li key={param.path}>
+                        <Link to={param.path}>{param.value}</Link>
+                    </li>
+            )
+        }
+    </ul>
+
+    return navbar;
+}
+
 export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
     let navbar = <ul style={{ padding: '0 5px 0 0' }}>
         {
@@ -57,7 +75,7 @@ export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
                                     </ul>
                                 }
                                 {
-                                    param.type === "select" && <div style={{paddingBottom: '10px'}}>
+                                    param.type === "select" && <div style={{ paddingBottom: '10px' }}>
                                         <ButtonSelectRobot>Select Robot</ButtonSelectRobot>
                                         <ButtonCyan>Geisha</ButtonCyan>
                                     </div>
@@ -73,4 +91,36 @@ export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
     </ul>
 
     return navbar;
+}
+
+export const renderLoad = (value) => {
+    let loader = <div className="loader">
+        <div className="box box0">
+            <div></div>
+        </div>
+        <div className="box box1">
+            <div></div>
+        </div>
+        <div className="box box2">
+            <div></div>
+        </div>
+        <div className="box box3">
+            <div></div>
+        </div>
+        <div className="box box4">
+            <div></div>
+        </div>
+        <div className="box box5">
+            <div></div>
+        </div>
+        <div className="box box6">
+            <div></div>
+        </div>
+        <div className="box box7">
+            <div></div>
+        </div>
+        <div className="ground">
+            <div></div>
+        </div>
+    </div>
 }

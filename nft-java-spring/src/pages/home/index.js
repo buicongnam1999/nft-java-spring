@@ -6,12 +6,11 @@ import Footer from 'layout/home/FooterHome';
 import { useTranslation } from 'react-i18next';
 import ToastALert from 'components/toasts/ToastALert';
 import ToastContainer from 'react-bootstrap/ToastContainer';
-import ModalAlert from 'components/modal/ModalAlert';
 
 export default function Home() {
   const { t , i18n } = useTranslation();
   const [show, setShow] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+
   return (
     <div>
       <Header t={t} i18n={i18n} />
@@ -19,7 +18,6 @@ export default function Home() {
       <ToastContainer position="bottom-end">
           <ToastALert onCloseToast={() => setShow(false)} show={show} variant="Dark" time="11s" body="abc" header="bootstrap"/>
       </ToastContainer>
-      <ModalAlert showModal={showModal} onCloseModal={() => setShowModal(false)}/>
       <Footer />
     </div>
   )

@@ -1,0 +1,234 @@
+.card-market {
+    --border-width: 3px;
+
+    position: relative;
+    width: 85%;
+    height: auto;
+    text-transform: uppercase;
+    color: white;
+    margin: 10px auto;
+    text-align: center;
+    font-family: cursive;
+    font-size: 24px;
+    border-radius: 3px;
+    min-height: 3em;
+    resize: both;
+    background: linear-gradient(to top, rgba(#cffffe, 0.3), rgba(#f9f7d9, 0.3), rgba(#fce2ce, 0.3), rgba(#ffc1f3, 0.3));
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 3px;
+        padding: 2px; /* control the border thickness */
+        background: linear-gradient(45deg, #f25ac9, #45d9fc, #5846f9);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+    }
+
+    &-hero {
+        width: 95%;
+        display: flex;
+        &-image {
+            padding: 5px 25px;
+        }
+        &-name {
+            width: 100%;
+        }
+    }
+    .card-info {
+        font-family: Odibee Sans;
+        font-size: 20px;
+        width: 100%;
+
+        &-elemnt {
+            display: flex;
+            width: 100%;
+        }
+        .nft {
+            &-life,
+            &-att,
+            &-def,
+            &-spe {
+                &-text,
+                &-percent {
+                    width: 20%;
+                }
+            }
+        }
+
+        &-life {
+            color: #55cccc;
+        }
+
+        &-att {
+            color: #ffe144;
+        }
+
+        &-def {
+            color: #5846f9;
+        }
+
+        &-spe {
+            color: #f25ac9;
+        }
+    }
+    &-type,
+    &-rarety,
+    &-age {
+        font-size: 20px;
+        text-align: right;
+        width: 100%;
+    }
+    &-type {
+        padding: 26px 0 0;
+        color: #e4e2e2;
+        font-family: Biger Over;
+    }
+    &-rarety {
+        color: #45d9fc;
+        font-family: Odibee Sans;
+    }
+    &-age {
+        font-size: 18px;
+        font-family: Odibee Sans;
+    }
+}
+
+@keyframes moveGradient {
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .card-market {
+        &-hero {
+            width: 95%;
+            display: flex;
+            &-image {
+                img {
+                    margin-top: 20px;
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+            &-name {
+            }
+        }
+        &-type,
+        &-rarety {
+            font-size: 15px;
+            text-align: right;
+        }
+        &-type {
+            padding: 0;
+            margin-top: 30px;
+            color: #e4e2e2;
+            font-family: Biger Over;
+        }
+        &-rarety {
+            color: #45d9fc;
+            font-family: Odibee Sans;
+        }
+
+        &-age {
+            font-size: 13px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .card-market {
+        &-hero {
+            &-image {
+                img {
+                    margin-top: 10px;
+                    width: 50px;
+                    height: 60px;
+                }
+            }
+        }
+        &-type,
+        &-rarety,
+        &-age {
+            font-size: 15px;
+            text-align: right;
+            // padding: 0 -6px;
+        }
+    }
+}
+
+@media screen and (max-width: 412px) {
+    .card-market {
+        &-hero {
+            width: 95%;
+            display: flex;
+            &-image {
+                img {
+                    margin-top: 15px;
+                    width: 50px;
+                    height: 70px;
+                }
+            }
+            &-name {
+            }
+        }
+        &-type,
+        &-rarety {
+            font-size: 10px;
+            text-align: right;
+        }
+        &-type {
+            padding: 0;
+            margin-top: 30px;
+            color: #e4e2e2;
+            font-family: Biger Over;
+        }
+        &-rarety {
+            color: #45d9fc;
+            font-family: Odibee Sans;
+        }
+
+        &-age {
+            font-size: 8px;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .card-market {
+        &-hero {
+            width: 95%;
+            display: flex;
+            &-image {
+                padding: 5px;
+                img {
+                }
+            }
+            &-name {
+            }
+        }
+        &-type,
+        &-rarety {
+            font-size: 12px;
+            text-align: right;
+        }
+        &-type {
+            padding: 0;
+            margin-top: 30px;
+            color: #e4e2e2;
+            font-family: Biger Over;
+        }
+        &-rarety {
+            color: #45d9fc;
+            font-family: Odibee Sans;
+        }
+
+        &-age {
+            font-size: 10px;
+        }
+    }
+}

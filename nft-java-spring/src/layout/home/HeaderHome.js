@@ -6,11 +6,12 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link, useLocation } from 'react-router-dom';
-import MenuIcon from 'assets/images/icon/menu.png'
+import MenuIcon from 'assets/images/icon/menu-icon.png';
 
 export default function Header(props) {
     const location = useLocation();
     const [user, setUser] = useState(null);
+    // const [currentPath, setCurrentPath] = useState(location.pathname);
     const navbarArr = [
         {
             name: "Home",
@@ -37,10 +38,11 @@ export default function Header(props) {
             active: false
         },
     ]
-    const [navbar, setNavbar] = useState(navbarArr);
+    const [navbar, setNavbar] = useState(navbarArr)
+
     useEffect(() => {
         setUser(localStorage.getItem['user'])
-    }, [user])
+    }, [user]);
 
     useEffect(() => {
         function loadLocation() {
@@ -82,7 +84,7 @@ export default function Header(props) {
             {
                 params && params.map((param) =>
                     param.active ?
-                        <li className="active" key={param.path} onClick={() => changeLocation(param.name)}>
+                        <li className="active" key={param.path}>
                             <Link to={param.path}
                                 onClick={() => changeLocation(param.name)}
                             >{param.value}</Link>
@@ -110,7 +112,7 @@ export default function Header(props) {
                         <Col className='header-right'>
                             <div className='navbar'>
                                 {/* <ul>
-                                    <li>
+                                    <li className='active'>
                                         <Link to="/">{props.t('Home')}</Link>
                                     </li>
                                     <li>
@@ -123,7 +125,7 @@ export default function Header(props) {
                                         <Link to="/market">{props.t('Contact Us')}</Link>
                                     </li>
                                 </ul> */}
-                                { renderNav(navbar) }
+                                {renderNav(navbar)}
                             </div>
                             <div className='user'>
                                 {
