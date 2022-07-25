@@ -1,7 +1,7 @@
 import ButtonCyan from "components/home/buttons/ButtonCyan";
 import ButtonSelectRobot from "components/home/buttons/ButtonSelectRobot";
 import CheckboxMarket from "components/home/checkbox/CheckboxMarket";
-import { Route, Routes, Link, useLocation } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 
 const renderRouteChild = (params) => {
     let routes = <Route>
@@ -123,4 +123,6 @@ export const renderLoad = (value) => {
             <div></div>
         </div>
     </div>
+
+    return loader;
 }

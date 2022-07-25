@@ -17,7 +17,7 @@ import ModalLoad from 'components/modal/ModalLoad';
 export default function MarketPlace() {
     const [defaultSelect, setDefaultSelect] = useState(0);
     const [navbar, setNavbar] = useState(navbarMarket);
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(false);
     const selectOption = (value) => {
         setDefaultSelect(value);
     }
