@@ -73,32 +73,6 @@ export default function MarketPlace() {
                                 </div>
                                 <Search />
                                 <div className='navbar-market'>
-                                    {/* <ul style={{ padding: '0 5px 0 0' }}>
-                                        <li>
-                                            <span>Body Part</span>
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                        </li>
-                                        <li>
-                                            <span>Rarity</span>
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                        </li>
-                                        <li>
-                                            <span>Family</span>
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                        </li>
-                                        <li>
-                                            <span>Robot</span>
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                        </li>
-                                        <li>
-                                            <span>Stats</span>
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                        </li>
-                                        <li>
-                                            <span>Antiquity</span>
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                        </li>
-                                    </ul> */}
                                     {renderNavMarket(navbar, openOrCloseNav, checkBox)}
                                 </div>
                             </Col>
@@ -117,10 +91,10 @@ export default function MarketPlace() {
                                     </div>
                                 </div>
                                 <div className='list-nft'>
-                                    <HeroCard />
-                                    <HeroCard />
-                                    <HeroCard />
-                                    <HeroCard />
+                                    <HeroCard showModal={setShowModal}/>
+                                    <HeroCard showModal={setShowModal}/>
+                                    <HeroCard showModal={setShowModal}/>
+                                    <HeroCard showModal={setShowModal}/>
                                 </div>
                             </Col>
                         </Row>
