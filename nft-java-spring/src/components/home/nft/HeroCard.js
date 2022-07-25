@@ -2,6 +2,7 @@ import React from 'react';
 import './HeroCard.scss';
 import Hero from 'assets/images/hero/Hero.png';
 import ParameterHero from './ParameterHero';
+import InfoElement from './InfoElement';
 
 export default function HeroCard() {
     return (
@@ -23,50 +24,10 @@ export default function HeroCard() {
                 </div>
             </div>
             <div className='card-info'>
-                <div className='card-info-elemnt'>
-                    <span className='nft-life-text'>
-                        LIFE
-                    </span>
-                    <span style={{ width: '50%' }}>
-                        <ParameterHero />
-                    </span>
-                    <span className='nft-life-percent'>
-                        30
-                    </span>
-                </div>
-                <div className='card-info-elemnt'>
-                    <span className='nft-att-text'>
-                        ATT
-                    </span>
-                    <span style={{ width: '50%' }}>
-                        <ParameterHero />
-                    </span>
-                    <span className='nft-life-percent'>
-                        30
-                    </span>
-                </div>
-                <div className='card-info-elemnt'>
-                    <span className='nft-def-text'>
-                        DEF
-                    </span>
-                    <span style={{ width: '50%' }}>
-                        <ParameterHero />
-                    </span>
-                    <span className='nft-life-percent'>
-                        30
-                    </span>
-                </div>
-                <div className='card-info-elemnt'>
-                    <span className='nft-spe-text'>
-                        SPE
-                    </span>
-                    <span style={{ width: '50%' }}>
-                        <ParameterHero />
-                    </span>
-                    <span className='nft-life-percent'>
-                        30
-                    </span>
-                </div>
+                <InfoElement name="LIFE" number="30" color="#55CCCC"/>
+                <InfoElement name="ATT" number="30" color="#FFE144"/>
+                <InfoElement name="DEF" number="30" color="#5846F9"/>
+                <InfoElement name="SPE" number="30" color="#F25AC9"/>
             </div>
         </div>
     )
