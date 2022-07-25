@@ -1,13 +1,16 @@
 $fontBiger: Biger Over;
 $fontOdibee: Odibee Sans;
-$colorBlue: #45d9fc;
+$colorBlue: #45D9FC;
 $colorGray: #e4e2e2;
 $colorBlack: #08090C;
 
 .btn {
     padding: 14px 28px !important;
     font-size: 16px;
-    cursor: pointer;
+    
+    &-pieces, &-complete, &-reset, &-select, &-cyan, &-buy {
+        cursor: pointer;
+    }
 
     &-pieces {
         background-color: $colorBlue;
@@ -43,7 +46,7 @@ $colorBlack: #08090C;
         background-color: #1e1f28;
         font-family: Odibee Sans;
         padding: 4px 32px;
-        color: #45d9fc;
+        color: $colorBlue;
         text-align: center;
         font-size: 24px;
     }
@@ -54,6 +57,11 @@ $colorBlack: #08090C;
         padding: 0 10px;
         font-size: 20px;
         width: 19%;
+    }
+    &-buy {
+        background: $colorBlue;
+        width: 50%;
+        line-height: 44px;
     }
 }
 .success {
