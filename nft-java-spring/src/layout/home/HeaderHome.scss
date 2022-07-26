@@ -11,9 +11,12 @@
             }
         }
         .header-left {
-            img {
-                height: 140px;
-                width: 250px;
+            line-height: 140px;
+            &-name {
+                margin: 0 10px;
+                font-size: 24px;
+                line-height: 150px;
+                font-family: Biger Over;
             }
         }
         .header-right {
@@ -33,6 +36,7 @@
                         font-size: 20px;
                         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
                         a {
+                            font-family: Odibee Sans;
                             text-decoration: none;
                             color: white;
                         }
@@ -45,18 +49,18 @@
                 }
                 @media screen and (max-width: 1920px) {
                     ul li {
-                        font-size: 16px;
+                        font-size: 20px;
                     }
                 }
                 @media screen and (max-width: 1520px) {
                     ul li {
-                        font-size: 15px;
+                        font-size: 18px;
                         padding: 0 20px;
                     }
                 }
                 @media screen and (max-width: 1200px) {
                     ul li {
-                        font-size: 15px;
+                        font-size: 16px;
                         padding: 0 15px;
                     }
                 }
@@ -89,10 +93,6 @@
     .header {
         &-content {
             .header-left {
-                img {
-                    height: 100px;
-                    width: 150px;
-                }
             }
     
             .header-right {
@@ -113,10 +113,6 @@
     .header {
         &-content {
             .header-left {
-                img {
-                    height: 100px;
-                    width: 150px;
-                }
             }
     
             .header-right {

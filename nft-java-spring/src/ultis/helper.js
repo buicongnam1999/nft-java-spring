@@ -4,7 +4,7 @@ import CheckboxMarket from "components/home/checkbox/CheckboxMarket";
 import { Route, Routes, Link } from "react-router-dom";
 
 const renderRouteChild = (params) => {
-    let routes = <Route>
+    return <Route>
         {
             params && params.map((param) =>
                 <Route path={param.path} element={param.component} key={param.path}>
@@ -15,11 +15,9 @@ const renderRouteChild = (params) => {
             )
         }
     </Route>
-
-    return routes;
 }
 export const renderRoutes = (params) => {
-    let routes = <Routes>
+    return <Routes>
         {
             params && params.map((param) =>
                 <Route exact path={param.path} element={param.component} key={param.path}>
@@ -30,11 +28,10 @@ export const renderRoutes = (params) => {
             )
         }
     </Routes>
-    return routes;
 }
 
 export const renderNav = (params) => {
-    let navbar = <ul>
+    return <ul>
         {
             params && params.map((param) =>
                 param.active ?
@@ -47,15 +44,13 @@ export const renderNav = (params) => {
             )
         }
     </ul>
-
-    return navbar;
 }
 
 export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
-    let navbar = <ul style={{ padding: '0 5px 0 0' }}>
+    return <ul style={{ padding: '0 5px 0 0' }}>
         {
             params && params.map((param) =>
-                <li>
+                <li key={param.name}>
                     <span onClick={() => openOrCloseNav(param.name)}>{param.name}</span>
                     {
                         param.active ?
@@ -89,12 +84,10 @@ export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
             )
         }
     </ul>
-
-    return navbar;
 }
 
 export const renderLoad = (value) => {
-    let loader = <div className="loader">
+    return <div className="loader">
         <div className="box box0">
             <div></div>
         </div>
@@ -123,6 +116,4 @@ export const renderLoad = (value) => {
             <div></div>
         </div>
     </div>
-
-    return loader;
 }

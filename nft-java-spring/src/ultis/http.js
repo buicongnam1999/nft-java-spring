@@ -1,5 +1,5 @@
 import axios from "axios";
-import storage from "./storage";
+import Storage from "./storage";
 
 const instance = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
@@ -31,10 +31,6 @@ instance.interceptors.request.use(
       return response;
     },
     (error) => {
-      // if (error?.response?.errId) {
-      //   toast.error(errorMes[error?.response?.errId]);
-      // }
-      // Attempt to get the actual error returned from API
       const err =
         (error.response && error.response.data && error.response.data) || error;
   
