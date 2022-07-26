@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Banner from 'components/home/marketplace/Banner';
 import './MarketPlace.scss';
 import Search from 'components/home/marketplace/left/Search';
@@ -13,11 +13,16 @@ import { renderNavMarket } from 'ultis/helper';
 import { sortList, navbarMarket } from 'constants/index';
 import HeroCard from 'components/home/nft/HeroCard';
 import ModalLoad from 'components/modal/ModalLoad';
+import Storage from 'ultis/storage';
 
 export default function MarketPlace() {
     const [defaultSelect, setDefaultSelect] = useState(0);
     const [navbar, setNavbar] = useState(navbarMarket);
     const [showModal, setShowModal] = useState(false);
+    const pageStatusTmp = Storage.get('pageStatusMarket');
+    const [filter, setFilter] = useState(
+        pageStatusTmp != null? pageStatusTmp : 1
+    )
     const selectOption = (value) => {
         setDefaultSelect(value);
     }
@@ -34,6 +39,15 @@ export default function MarketPlace() {
             setNavbar(newState);
         }
     }
+
+    useEffect(() => {
+      
+    
+      return () => {
+        
+      }
+    }, [])
+    
 
     const checkBox = (name) => {
         if (name) {
@@ -58,7 +72,6 @@ export default function MarketPlace() {
             <div className='market'>
                 <ModalLoad showModal={showModal} onCloseModal={() => setShowModal(false)} />
                 <Banner />
-                MarketPlace
                 <div className='market-content'>
                     <Container>
                         <Row>
