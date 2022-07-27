@@ -26,10 +26,10 @@ export default function HeroCard(props) {
                 </div>
             </div>
             <div className='card-info'>
-                <InfoElement name="LIFE" number="30" color="#55CCCC"/>
-                <InfoElement name="ATT" number="30" color="#FFE144"/>
-                <InfoElement name="DEF" number="30" color="#5846F9"/>
-                <InfoElement name="SPE" number="30" color="#F25AC9"/>
+                <InfoElement name="LIFE" number={props.nftLife} color="#55CCCC"/>
+                <InfoElement name="ATT" number={props.nftAttack} color="#FFE144"/>
+                <InfoElement name="DEF" number={props.nftDef} color="#5846F9"/>
+                <InfoElement name="SPE" number={props.nftSpeed} color="#F25AC9"/>
             </div>
             <div className='card-price'>
                 <div className='card-price__token'>
@@ -41,7 +41,7 @@ export default function HeroCard(props) {
                     </div>
                 </div>
                 <div className='card-price__amount'>
-                    00.18
+                    {props.nftPrice}
                 </div>
             </div>
             <div className='card-button'>

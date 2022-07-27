@@ -12,16 +12,20 @@ import ButtonResetMarket from 'components/home/buttons/ButtonResetMarket';
 import { renderNavMarket } from 'ultis/helper';
 import { sortList, navbarMarket } from 'constants/index';
 import HeroCard from 'components/home/nft/HeroCard';
-import ModalLoad from 'components/modal/ModalLoad';
 import Storage from 'ultis/storage';
+import { useDispatch } from 'react-redux';
+import * as marketActions from 'actions/market';
+const ModalLoad = React.lazy(() => import('components/modal/ModalLoad'));
 
 export default function MarketPlace() {
     const [defaultSelect, setDefaultSelect] = useState(0);
     const [navbar, setNavbar] = useState(navbarMarket);
     const [showModal, setShowModal] = useState(false);
     const pageStatusTmp = Storage.get('pageStatusMarket');
+    const dispatch = useDispatch();
+    const [nfts, setNfts] = useState();
     const [filter, setFilter] = useState(
-        pageStatusTmp != null? pageStatusTmp : 1
+        pageStatusTmp != null ? pageStatusTmp : 1
     )
     const selectOption = (value) => {
         setDefaultSelect(value);
@@ -41,13 +45,27 @@ export default function MarketPlace() {
     }
 
     useEffect(() => {
-      
-    
-      return () => {
-        
-      }
-    }, [])
-    
+        // const fetchData = () => {
+        //     dispatch(
+        //         marketActions.fetchItemList()
+        //     )
+        // }
+        const loadData = async () => {
+            const result = await marketActions.fetchItemList();
+            if (result && result.status) {
+                const items = result.data;
+                setNfts(items);
+            }
+        }
+        return () => {
+            loadData();
+        }
+    }, 
+    [
+        filter
+
+    ])
+
 
     const checkBox = (name) => {
         if (name) {
@@ -104,10 +122,17 @@ export default function MarketPlace() {
                                     </div>
                                 </div>
                                 <div className='list-nft'>
-                                    <HeroCard showModal={setShowModal}/>
-                                    <HeroCard showModal={setShowModal}/>
-                                    <HeroCard showModal={setShowModal}/>
-                                    <HeroCard showModal={setShowModal}/>
+                                    {nfts && nfts.map((nft,index) => 
+                                        <HeroCard 
+                                        key={index}
+                                        showModal={setShowModal} 
+                                        nftPrice={nft.nftPrice}
+                                        nftLife={nft.nft.nftLife}
+                                        nftAttack={nft.nft.nftAttack}
+                                        nftDef={nft.nft.nftDef}
+                                        nftSpeed={nft.nft.nftSpeed}
+                                        />
+                                    )}
                                 </div>
                             </Col>
                         </Row>
