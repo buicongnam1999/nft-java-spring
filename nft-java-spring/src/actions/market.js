@@ -1,8 +1,8 @@
 import http from 'ultis/http';
 
-export const fetchItemList = (params) => {
+export const fetchItemList = async () => {
     try {
-        const result = await http.get('item-list-market', {params});
+        const result = await http.get('marketplace/nft-sale');
 
         return result;
     } catch (err) {

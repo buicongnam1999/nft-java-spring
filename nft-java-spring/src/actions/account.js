@@ -1,8 +1,8 @@
 import http from 'ultis/http';
 
-export const loginHome = (params) => {
+export const loginHome = async (params) => {
     try {
-        return http.post('login-home', params);
+        return await http.post('login-home', params);
     } catch (err) {
         throw err;
     }
