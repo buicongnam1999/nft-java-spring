@@ -4,17 +4,13 @@ import CheckboxMarket from "components/home/checkbox/CheckboxMarket";
 import { Route, Routes, Link } from "react-router-dom";
 
 const renderRouteChild = (params) => {
-    return <Route>
+    return <>
         {
             params && params.map((param) =>
-                <Route path={param.path} element={param.component} key={param.path}>
-                    {
-                        param.child
-                    }
-                </Route>
+                <Route path={param.path} element={param.component} key={param.path}></Route>
             )
         }
-    </Route>
+    </>
 }
 export const renderRoutes = (params) => {
     return <Routes>
@@ -27,6 +23,7 @@ export const renderRoutes = (params) => {
                 </Route>
             )
         }
+        {/* <Route /> */}
     </Routes>
 }
 

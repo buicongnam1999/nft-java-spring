@@ -13,8 +13,8 @@ export default function Sound() {
     //     audioTune.play();
     // }, [playInLoop])
     return (
-        <div>
-            <iframe id="video-player" className="video" width="560" height="315" src={SoundFile} allow="autoplay"></iframe>
+        <div style={{display: 'none'}}>
+            {/* <iframe id="video-player" className="video" width="560" height="315" src={SoundFile} allow="autoplay"></iframe> */}
         </div>
     )
 }

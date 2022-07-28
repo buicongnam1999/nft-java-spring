@@ -4,11 +4,12 @@ import ButtonDanger from 'components/home/buttons/ButtonDanger';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import MenuIcon from 'assets/images/icon/menu-icon.png';
 import MedaCoinLogo from 'assets/images/logo/MedaCoinLogo.png';
 
 export default function Header(props) {
+    const navigate = useNavigate();
     const location = useLocation();
     const [user, setUser] = useState(null);
     // const [currentPath, setCurrentPath] = useState(location.pathname);
@@ -65,7 +66,7 @@ export default function Header(props) {
         }
     }, [])
 
-    const changeLocation = (name) => {
+    const changeLocation = (name, path) => {
         if (name) {
             const newState = navbarArr.map(e => {
                 if (e.name === name) {
@@ -76,6 +77,7 @@ export default function Header(props) {
             });
             setNavbar(newState);
         }
+        navigate(path)
     }
 
     const renderNav = (params) => {
@@ -88,8 +90,8 @@ export default function Header(props) {
                                 onClick={() => changeLocation(param.name)}
                             >{param.value}</Link>
                         </li> :
-                        <li key={param.path}>
-                            <Link to={param.path} onClick={() => changeLocation(param.name)}>{param.value}</Link>
+                        <li key={param.path} onClick={() => changeLocation(param.name, param.path)}>
+                            <Link to="" onClick={() => changeLocation(param.name, param.path)}>{param.value}</Link>
                         </li>
                 )
             }

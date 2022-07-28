@@ -25,7 +25,7 @@ export default function MarketPlace() {
     const dispatch = useDispatch();
     const [nfts, setNfts] = useState();
     const [filter, setFilter] = useState(
-        pageStatusTmp != null ? pageStatusTmp : 1
+        pageStatusTmp !== null ? pageStatusTmp : 1
     )
     const selectOption = (value) => {
         setDefaultSelect(value);
@@ -52,7 +52,7 @@ export default function MarketPlace() {
         // }
         const loadData = async () => {
             const result = await marketActions.fetchItemList();
-            if (result && result.status) {
+            if (result !== undefined && result.status) {
                 const items = result.data;
                 setNfts(items);
             }
@@ -60,11 +60,11 @@ export default function MarketPlace() {
         return () => {
             loadData();
         }
-    }, 
-    [
-        filter
+    },
+        [
+            filter
 
-    ])
+        ])
 
 
     const checkBox = (name) => {
@@ -122,15 +122,15 @@ export default function MarketPlace() {
                                     </div>
                                 </div>
                                 <div className='list-nft'>
-                                    {nfts && nfts.map((nft,index) => 
-                                        <HeroCard 
-                                        key={index}
-                                        showModal={setShowModal} 
-                                        nftPrice={nft.nftPrice}
-                                        nftLife={nft.nft.nftLife}
-                                        nftAttack={nft.nft.nftAttack}
-                                        nftDef={nft.nft.nftDef}
-                                        nftSpeed={nft.nft.nftSpeed}
+                                    {nfts && nfts.map((nft, index) =>
+                                        <HeroCard
+                                            key={index}
+                                            showModal={setShowModal}
+                                            nftPrice={nft.nftPrice}
+                                            nftLife={nft.nft.nftLife}
+                                            nftAttack={nft.nft.nftAttack}
+                                            nftDef={nft.nft.nftDef}
+                                            nftSpeed={nft.nft.nftSpeed}
                                         />
                                     )}
                                 </div>
