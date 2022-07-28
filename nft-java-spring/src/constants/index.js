@@ -5,14 +5,14 @@ import User from 'layout/admin/user';
 import Product from 'layout/admin/product';
 import LoginHome from 'layout/home/login/LoginHome';
 import HomePage from 'layout/home/HomePage';
-import MarketPlace from 'layout/home/marketplace/MarketPlace';
+import IndexMarket from 'layout/home/marketplace/index';
 import NftDetail from 'layout/home/marketplace/NftDetail';
 import NotFound from "layout/home/NotFound";
-import { HOME_PATH, LOGIN_GREETING_PATH, MARKET_PATH, ADMIN_PATH, NFT_PATH, USER_PATH, PAGE_NOT_FOUND } from 'configs/route_path';
+import * as routePath from 'configs/route_path';
 
 export const routesPage = [
     {
-        path: HOME_PATH,
+        path: routePath.HOME_PATH,
         component: <Home />,
         route: Route,
         child: [
@@ -24,7 +24,7 @@ export const routesPage = [
         ]
     },
     {
-        path: ADMIN_PATH,
+        path: routePath.ADMIN_PATH,
         component: <Admin />,
         route: Route,
         child: [
@@ -44,17 +44,17 @@ export const routesPage = [
 
 export const routesAdmin = [
     {
-        path: ADMIN_PATH,
+        path: routePath.ADMIN_PATH,
         component: <Product />,
         route: Route
     },
     {
-        path: USER_PATH,
+        path: routePath.USER_PATH,
         component: <User />,
         route: Route
     },
     {
-        path: NFT_PATH,
+        path: routePath.NFT_PATH,
         component: <Product />,
         route: Route
     }
@@ -62,30 +62,33 @@ export const routesAdmin = [
 
 export const routesHome = [
     {
-        path: HOME_PATH,
+        path: routePath.HOME_PATH,
         component: <HomePage />,
         route: Route
     },
     {
-        path: LOGIN_GREETING_PATH,
+        path: routePath.LOGIN_GREETING_PATH,
         component: <LoginHome />,
         route: Route
     },
     {
-        path: MARKET_PATH,
-        component: <MarketPlace />,
+        path: routePath.MARKET_PATH,
+        component: <IndexMarket />,
         route: Route
     },
     {
-        path: NFT_PATH,
-        component: <NftDetail />,
-        route: Route
-    },
-    {
-        path: PAGE_NOT_FOUND,
+        path: routePath.PAGE_NOT_FOUND,
         component: <NotFound />,
         route: Route
     }
+]
+
+export const routeMarket = [
+    {
+        path: routePath.NFT_PATH,
+        component: <NftDetail />,
+        route: Route
+    },
 ]
 
 export const ToastAlert = [
@@ -199,4 +202,4 @@ export const navbarMarket = [
         name: "Antiquity",
         active: false,
     }
-] 
+]

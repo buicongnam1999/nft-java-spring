@@ -7,6 +7,9 @@ import ButtonSelectRobot from '../buttons/ButtonSelectRobot';
 import ButtonBuy from '../buttons/ButtonBuy';
 
 export default function HeroCard(props) {
+    const showDetaiNft = () => {
+        
+    }
     return (
         <div className='card-market'>
             <div className='card-market-hero'>
@@ -26,10 +29,10 @@ export default function HeroCard(props) {
                 </div>
             </div>
             <div className='card-info'>
-                <InfoElement name="LIFE" number={props.nftLife} color="#55CCCC"/>
-                <InfoElement name="ATT" number={props.nftAttack} color="#FFE144"/>
-                <InfoElement name="DEF" number={props.nftDef} color="#5846F9"/>
-                <InfoElement name="SPE" number={props.nftSpeed} color="#F25AC9"/>
+                <InfoElement name="LIFE" number={props.nftLife} color="#55CCCC" class="gradient-hero-blue"/>
+                <InfoElement name="ATT" number={props.nftAttack} color="#FFE144" class="gradient-hero-yellow"/>
+                <InfoElement name="DEF" number={props.nftDef} color="#5846F9" class="gradient-hero-violet"/>
+                <InfoElement name="SPE" number={props.nftSpeed} color="#F25AC9" class="gradient-hero-pink"/>
             </div>
             <div className='card-price'>
                 <div className='card-price__token'>
@@ -45,7 +48,7 @@ export default function HeroCard(props) {
                 </div>
             </div>
             <div className='card-button'>
-                <ButtonSelectRobot font="Odibee Sans" width="40%" showModal={props.showModal}>Details</ButtonSelectRobot>
+                <ButtonSelectRobot font="Odibee Sans" width="40%" showModal={props.showModal} id={props.id}>Details</ButtonSelectRobot>
                 <ButtonBuy font="Odibee Sans" width="40%" showModal={props.showModal}>Buy Now</ButtonBuy>
             </div>
         </div>

@@ -7,10 +7,8 @@ import { renderRoutes } from 'ultis/helper';
 
 export const IndexRouter = () => {
     return (
-        <div>
-            <BrowserRouter>
-                {renderRoutes(routesPage)}
-            </BrowserRouter>
-        </div>
+        <BrowserRouter>
+            {renderRoutes(routesPage)}
+        </BrowserRouter>
     )
 }
