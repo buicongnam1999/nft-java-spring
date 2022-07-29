@@ -9,3 +9,13 @@ export const fetchItemList = async () => {
         throw err;
     }
 }
+
+export const fetchItemCount = async () => {
+    try {
+        const result = await http.get('marketplace/nft-sale/count');
+
+        return result;
+    } catch (err) {
+        throw err;
+    }
+}

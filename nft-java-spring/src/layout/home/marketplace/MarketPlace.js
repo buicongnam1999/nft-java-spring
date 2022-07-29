@@ -12,9 +12,11 @@ import ButtonResetMarket from 'components/home/buttons/ButtonResetMarket';
 import { renderNavMarket } from 'ultis/helper';
 import { sortList, navbarMarket } from 'constants/index';
 import HeroCard from 'components/home/nft/HeroCard';
+import HeroNotFound from 'assets/images/hero/Hero-found.png';
 import Storage from 'ultis/storage';
 import { useDispatch } from 'react-redux';
 import * as marketActions from 'actions/market';
+import MarketPage from 'components/home/marketplace/MarketPage';
 const ModalLoad = React.lazy(() => import('components/modal/ModalLoad'));
 
 export default function MarketPlace() {
@@ -24,6 +26,7 @@ export default function MarketPlace() {
     const pageStatusTmp = Storage.get('pageStatusMarket');
     const dispatch = useDispatch();
     const [nfts, setNfts] = useState();
+    const [pageNft, setPageNft] = useState();
     const [filter, setFilter] = useState(
         pageStatusTmp !== null ? pageStatusTmp : 1
     )
@@ -51,19 +54,29 @@ export default function MarketPlace() {
         //     )
         // }
         const loadData = async () => {
-            const result = await marketActions.fetchItemList();
+            let result = await marketActions.fetchItemList();
             if (result !== undefined && result.status) {
                 const items = result.data;
                 setNfts(items);
             }
         }
+        const loadCountNft = async () => {
+            let result = await marketActions.fetchItemCount();
+            if (result !== undefined && result.status) {
+                let page = Math.ceil(result.data / 8);
+                console.log(page);
+                setPageNft(3);
+            }
+        }
         return () => {
             loadData();
+            loadCountNft();
         }
     },
         [
-            filter
-
+            filter,
+            // nfts,
+            // countNft
         ])
 
 
@@ -121,22 +134,36 @@ export default function MarketPlace() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='list-nft'>
-                                    {nfts && nfts.map((nft, index) =>
-                                        <HeroCard
-                                            key={index}
-                                            showModal={setShowModal}
-                                            nftPrice={nft.nftPrice}
-                                            nftLife={nft.nft.nftLife}
-                                            nftAttack={nft.nft.nftAttack}
-                                            nftDef={nft.nft.nftDef}
-                                            nftSpeed={nft.nft.nftSpeed}
-                                        />
-                                    )}
+                                {nfts &&
+                                    <div className='list-nft'>
+                                        {nfts.map((nft, index) =>
+                                            <HeroCard
+                                                key={index}
+                                                showModal={setShowModal}
+                                                nftPrice={nft.nftPrice}
+                                                nftLife={nft.nft.nftLife}
+                                                nftAttack={nft.nft.nftAttack}
+                                                nftDef={nft.nft.nftDef}
+                                                nftSpeed={nft.nft.nftSpeed}
+                                                nft={nft.nft}
+                                            />
+                                        )}
+                                    </div>
+                                }
+                                {!nfts && <div className='not-nft'>
+                                    <div className='not-nft-img'>
+                                        <img src={HeroNotFound} alt='' />
+                                    </div>
+                                    <div className='not-nft-text'>
+                                        Not Pieces found
+                                    </div>
                                 </div>
+                                }
+                                <MarketPage page={pageNft}/>
                             </Col>
                         </Row>
                     </Container>
+                    
                 </div>
             </div>
         </>
