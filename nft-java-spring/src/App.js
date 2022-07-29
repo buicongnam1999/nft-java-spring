@@ -1,14 +1,14 @@
 import { IndexRouter } from './routes';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { connectRouter } from "connected-react-router";
+// import { connectRouter } from "connected-react-router";
 
 function App({ history }) {
   return (
-    <connectRouter history={history}>
+    // <connectRouter history={history}>
       <div className="App">
         <IndexRouter />
       </div>
-    </connectRouter>
+    // </connectRouter>
   );
 }
 

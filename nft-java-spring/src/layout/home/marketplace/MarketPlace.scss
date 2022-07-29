@@ -167,6 +167,28 @@ $font-odibee: Odibee Sans;
             grid-template-columns: auto auto;
         }
 
+        .not-nft {
+            &-img {
+                width: 80%;
+                margin: 0 auto;
+                line-height: 50vh;
+                img {
+                    display: block;
+                    margin: auto;
+                }
+            }
+            &-text {
+                width: 80%;
+                font-family: $font-biger;
+                margin: 25px auto;
+                height: 100vh;
+                text-align: center;
+            }
+            width: 90%;
+            background-color: rgba(44, 45, 58, 0.6);
+            margin: 0 35px;
+        }
+
         @media screen and (max-width: 1520px) {
             .col-3 {
                 width: 100%;
@@ -335,11 +357,23 @@ $font-odibee: Odibee Sans;
     
             .list-nft {
                 width: 80%;
-                height: auto;
-                background-color: rgba(44, 45, 58, 0.6);
+                // height: auto;
+                // background-color: rgba(44, 45, 58, 0.6);
+                // margin: 0 35px;
+                // display: grid;
+                // grid-template-columns: auto auto;
+            }
+
+            .not-nft {
+                &-img {
+                    padding-top: 50px;
+                    img {
+                        
+                    }
+                }
+                &-text {
+                }
                 margin: 0 35px;
-                display: grid;
-                grid-template-columns: auto auto;
             }
     
             @media screen and (max-width: 1520px) {
@@ -416,6 +450,17 @@ $font-odibee: Odibee Sans;
             .list-nft {
                 width: 100%;
                 margin: 0;
+            }
+            .not-nft {
+                &-img {
+                    padding-top: 50px;
+                    img {
+                        
+                    }
+                }
+                &-text {
+                }
+                margin: 0 auto;
             }
         }
     }

@@ -85,13 +85,19 @@ export default function Header(props) {
             {
                 params && params.map((param) =>
                     param.active ?
-                        <li className="active" key={param.path}>
-                            <Link to={param.path}
-                                onClick={() => changeLocation(param.name)}
-                            >{param.value}</Link>
+                        <li className="active" key={param.path} onClick={() => changeLocation(param.name, param.path)}>
+                            <Link to=""
+                                onClick={() => changeLocation(param.name, param.path)}
+                            >
+                                {param.value}
+                            </Link>
                         </li> :
                         <li key={param.path} onClick={() => changeLocation(param.name, param.path)}>
-                            <Link to="" onClick={() => changeLocation(param.name, param.path)}>{param.value}</Link>
+                            <Link to="" 
+                                onClick={() => changeLocation(param.name, param.path)}
+                            >
+                                {param.value}
+                            </Link>
                         </li>
                 )
             }
