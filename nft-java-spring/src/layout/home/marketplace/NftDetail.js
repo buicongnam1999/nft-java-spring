@@ -21,20 +21,22 @@ export default function NftDetail() {
                 <div className='detail-title'>
                     <div className='detail-title-content'>
                         <span>Core</span>
-                        <span>Piece</span>
-                        <span>Rarity: <span className='rarity'>&nbsp;Legendary</span></span>
+                        <span className='piece'>Piece</span>
+                        <span className='rarity'>Rarity: <span className='type'>&nbsp;Legendary</span></span>
                     </div>
                 </div>
                 <div className='detail-content'>
                     <div className='detail-content-info'>
                         <div className='hero'>
-                            <div className='hero-image'>
+                            <div className='hero-image card-market'>
                                 <div>
-                                    <img src={Hero} alt=''/>
+                                    <img src={Hero} alt='Image Hero'/>
                                 </div>
                             </div>
                             <div className='hero-info'>
-                                    
+                                <div className=''>
+
+                                </div>
                             </div>
                         </div>
                     </div>

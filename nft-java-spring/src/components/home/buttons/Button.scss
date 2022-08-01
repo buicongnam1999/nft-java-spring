@@ -64,10 +64,19 @@ $colorBlack: #08090C;
         line-height: 44px;
     }
     &-page {
+        cursor: pointer;
         color: white;
         font-family: Odibee Sans;
         font-size: 20px;
-        .active {
+        padding: 0px 10px;
+        margin: 0 5px;
+        &-active {
+            cursor: pointer;
+            color: white;
+            font-family: Odibee Sans;
+            font-size: 20px;
+            padding: 0px 10px;
+            margin: 0 5px;
             background-color: #F25AC9;
         }
     }
