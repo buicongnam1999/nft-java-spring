@@ -57,7 +57,7 @@ export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
                                     param.type === "click" && <ul>
                                         {
                                             param.child && param.child.map((e, index) =>
-                                                <li>
+                                                <li key={index}>
                                                     <div className="form-group">
                                                         <CheckboxMarket key={index} name={e.name} checkBox={checkBox} />
                                                     </div>
