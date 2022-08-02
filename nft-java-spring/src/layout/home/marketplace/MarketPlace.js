@@ -18,6 +18,7 @@ import { useDispatch } from 'react-redux';
 import * as marketActions from 'actions/market';
 import MarketPage from 'components/home/marketplace/MarketPage';
 import ModalLoad from 'components/modal/ModalLoad';
+import InputSlider from 'components/home/inputs/InputSlider';
 
 export default function MarketPlace() {
     const [defaultSelect, setDefaultSelect] = useState(0);
@@ -26,6 +27,8 @@ export default function MarketPlace() {
     const pageStatusTmp = Storage.get('pageStatusMarket');
     const [nfts, setNfts] = useState();
     const [numberButtons, setNumberButtons] = useState();
+    const [pageNft, setPageNft] = useState();
+    const [slider, setSlider] = useState();
     const [filter, setFilter] = useState(
         pageStatusTmp !== null ? pageStatusTmp : 0
     )
@@ -161,7 +164,6 @@ export default function MarketPlace() {
                             </Col>
                         </Row>
                     </Container>
-
                 </div>
             </div>
         </>
