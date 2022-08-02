@@ -20,59 +20,59 @@ export default function MarketPlace() {
     const [showModal, setShowModal] = useState(true);
     const selectOption = (value) => {
         setDefaultSelect(value);
-    }
+    };
 
     const openOrCloseNav = (name) => {
         if (name) {
-            const newState = navbar.map(object => {
+            const newState = navbar.map((object) => {
                 if (object.name === name) {
-                    return { ...object, active: !object.active }
+                    return { ...object, active: !object.active };
                 }
 
                 return object;
             });
             setNavbar(newState);
         }
-    }
+    };
 
     const checkBox = (name) => {
         if (name) {
-            const newState = navbar.map(object => {
+            const newState = navbar.map((object) => {
                 if (object.child) {
                     object.child.map((e) => {
                         if (e.name === name) {
-                            return { ...e, activeChild: true }
+                            return { ...e, activeChild: true };
                         }
                         return e;
-                    })
+                    });
                 }
 
                 return object;
             });
             setNavbar(newState);
         }
-    }
+    };
 
     return (
         <>
-            <div className='market'>
-                <ModalLoad showModal={showModal} onCloseModal={() => setShowModal(false)} />
+            <div className="market">
+                {/* <ModalLoad showModal={showModal} onCloseModal={() => setShowModal(false)} /> */}
                 <Banner />
                 MarketPlace
-                <div className='market-content'>
+                <div className="market-content">
                     <Container>
                         <Row>
                             <Col xs={3}>
-                                <div className='btn-group-market'>
-                                    <div className='btn-group-search'>
+                                <div className="btn-group-market">
+                                    <div className="btn-group-search">
                                         <ButtonPieces />
                                         <ButtonComplete />
                                     </div>
-                                    <div className='btn-group'></div>
+                                    <div className="btn-group"></div>
                                     <ButtonResetMarket />
                                 </div>
                                 <Search />
-                                <div className='navbar-market'>
+                                <div className="navbar-market">
                                     {/* <ul style={{ padding: '0 5px 0 0' }}>
                                         <li>
                                             <span>Body Part</span>
@@ -103,20 +103,16 @@ export default function MarketPlace() {
                                 </div>
                             </Col>
                             <Col>
-                                <div className='market-list'>
-                                    <div className='title-list'>
-                                        Pieces list
-                                    </div>
-                                    <div className='market-sort'>
-                                        <div className='market-sort-text'>
-                                            Sort by
-                                        </div>
-                                        <div className='market-sort-select'>
+                                <div className="market-list">
+                                    <div className="title-list">Pieces list</div>
+                                    <div className="market-sort">
+                                        <div className="market-sort-text">Sort by</div>
+                                        <div className="market-sort-select">
                                             <SelectMarket sortList={sortList} selectOption={(e) => selectOption(e)} />
                                         </div>
                                     </div>
                                 </div>
-                                <div className='list-nft'>
+                                <div className="list-nft">
                                     <HeroCard />
                                     <HeroCard />
                                     <HeroCard />
@@ -128,5 +124,5 @@ export default function MarketPlace() {
                 </div>
             </div>
         </>
-    )
+    );
 }

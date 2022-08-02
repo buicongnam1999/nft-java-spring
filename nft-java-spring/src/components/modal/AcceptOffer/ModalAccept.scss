@@ -1,0 +1,449 @@
+$fontBiger: Biger Over;
+$font-odibee: Odibee Sans;
+.modal-wrapper {
+    --modal-width: 770px;
+    --modal-height: 619px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .modal-background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-container {
+        position: relative;
+        margin: auto;
+        background-color: #08090c;
+        width: var(--modal-width);
+        height: var(--modal-height);
+        z-index: 10;
+        color: #e4e2e2;
+
+        .modal-inner {
+            // position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 52px 48px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: 3px;
+                padding: 2px;
+                background: linear-gradient(45deg, #f25ac9, #45d9fc, #5846f9);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+                pointer-events: none;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            padding: 0 0 23px 0;
+
+            &__text {
+                margin-bottom: 0;
+                font-family: $fontBiger;
+                font-weight: var(--font-weight);
+                line-height: 46px;
+            }
+
+            &__icon {
+                display: flex;
+                align-items: center;
+                color: #45d9fc;
+                width: 20px;
+                height: 20px;
+                background-color: transparent;
+                outline: none;
+                border: none;
+            }
+        }
+
+        .modal-top-content {
+            width: 672px;
+            height: 155px;
+
+            .modal-top-content__title {
+                display: flex;
+                justify-content: space-between;
+
+                .modal-top-content__title-name {
+                    font-family: $font-odibee;
+                    font-weight: var(--font-weight);
+                    font-size: 20px;
+                    line-height: 22px;
+                }
+            }
+
+            .modal-top-content__card {
+                display: flex;
+                justify-content: space-between;
+
+                &-left {
+                    display: flex;
+                    // position: relative;
+
+                    &-img {
+                        width: 115px;
+                        height: 115px;
+                        // border: 2px solid red;
+                        border-radius: 3px;
+                        background-image: url('../../../assets/images/nft/heroes/Vt649D_preview_rev.png');
+                        background-size: cover;
+                        position: relative;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            inset: 0;
+                            border-radius: 3px;
+                            padding: 2px;
+                            background: linear-gradient(45deg, #f25ac9, #45d9fc, #5846f9);
+                            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                            -webkit-mask-composite: xor;
+                            mask-composite: exclude;
+                            pointer-events: none;
+                        }
+                    }
+
+                    &-info {
+                        display: flex;
+                        flex-direction: column;
+                        padding-left: 16px;
+
+                        &__name {
+                            font-family: $fontBiger;
+                            font-weight: var(--font-weight);
+                            font-size: 24px;
+                            line-height: 46px;
+                        }
+
+                        &__code {
+                            font-family: $font-odibee;
+                            font-weight: var(--font-weight);
+                            font-size: 20px;
+                            line-height: 46px;
+                        }
+                    }
+                }
+
+                &-right {
+                    width: 278px;
+                    height: 79px;
+                    background-color: #1e1f28;
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+                    right: 0;
+                    padding: 3px 17px;
+
+                    &-top {
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        column-gap: 10px;
+
+                        img {
+                            width: 20px;
+                            height: 20px;
+                            margin-top: 8px;
+                        }
+
+                        span {
+                            width: 52px;
+                            height: 33px;
+                            font-family: $fontBiger;
+                            font-weight: var(--font-weight);
+                            font-size: 20px;
+                            line-height: 46px;
+                            color: #f25ac9;
+                        }
+                    }
+
+                    &-bottom {
+                        display: flex;
+                        justify-content: flex-end;
+
+                        span {
+                            width: 66px;
+                            height: 23px;
+                            font-family: $font-odibee;
+                            font-weight: var(--font-weight);
+                            font-size: 18px;
+                            line-height: 22px;
+                            margin-top: 4px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-content--accept {
+            width: 672px;
+            height: 300px;
+            .modal-top-content--accept {
+                width: 672px;
+                height: 264px;
+
+                .modal-top-content__card--accept {
+                    display: flex;
+                    height: 100%;
+                    border-top: 2px solid #1e1f28;
+                    border-bottom: 2px solid #1e1f28;
+                    margin: 16px 0;
+
+                    .modal-top-content__card-left-img--accept {
+                        width: 200px;
+                        height: 200px;
+                        border-radius: 3px;
+                        background-image: url('../../../assets/images/nft/heroes/Vt649D_preview_rev.png');
+                        background-size: cover;
+                        position: relative;
+                        margin: auto;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            inset: 0;
+                            border-radius: 3px;
+                            padding: 2px;
+                            background: linear-gradient(45deg, #f25ac9, #45d9fc, #5846f9);
+                            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                            -webkit-mask-composite: xor;
+                            mask-composite: exclude;
+                            pointer-events: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-bottom-content {
+            padding: 28px 0;
+
+            .modal-bottom-content__fee {
+                display: flex;
+                justify-content: space-between;
+                font-family: $font-odibee;
+                border-top: 2px solid #1e1f28;
+                padding: 17px 0;
+            }
+
+            .modal-bottom-content__total {
+                font-family: $fontBiger;
+                border-top: 2px solid #1e1f28;
+                padding: 17px 0;
+            }
+        }
+
+        .modal-footer {
+            display: flex;
+            row-gap: 32px;
+
+            .modal-footer__info {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                height: 60px;
+                align-items: center;
+                background-color: #1e1f28;
+                padding: 0px 24px;
+
+                .modal-footer__info-left {
+                    display: flex;
+                    align-items: center;
+                    font-family: $fontBiger;
+                    column-gap: 6px;
+
+                    span {
+                        line-height: 40px;
+                        padding-top: 2px;
+                    }
+                }
+
+                .modal-footer__info-right {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 6px;
+
+                    .modal-footer__info-right__price {
+                        min-width: 52px;
+                        height: 33px;
+                        font-family: Biger Over;
+                        font-weight: var(--font-weight);
+                        font-size: 20px;
+                        line-height: 40px;
+                        color: #f25ac9;
+                    }
+
+                    .modal-footer__info-right__price-2 {
+                        font-family: $font-odibee;
+                        font-size: 18px;
+                        font-weight: var(--font-weight);
+                        line-height: 22px;
+                        padding-top: 8px;
+                    }
+                }
+            }
+
+            .modal-footer__accept {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                .modal-footer__accept-btn {
+                    width: 174px;
+                    height: 40px;
+                    background-color: #45d9fc;
+                    font-family: $font-odibee;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 16px 32px 14px 32px;
+                }
+            }
+        }
+
+        .modal-footer--accept {
+            margin-top: 18px;
+
+            .modal-footer-content__fee {
+                display: flex;
+                justify-content: space-between;
+                font-family: $font-odibee;
+                padding: 17px 0;
+
+                .modal-footer-content__fee-name {
+                    font-family: $fontBiger;
+                }
+            }
+
+            .modal-footer__info--accept {
+                width: 100%;
+                display: flex;
+                height: 60px;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #1e1f28;
+                padding: 0px 24px;
+
+                .modal-footer__info-left {
+                    display: flex;
+                    align-items: center;
+                    margin-left: -30px;
+
+                    span {
+                        font-family: $font-odibee;
+                        font-size: 24px;
+                        line-height: 22px;
+                        margin-top: 6px;
+                    }
+
+                    .lds-spinner {
+                        color: official;
+                        display: inline-block;
+                        position: relative;
+                        width: 60px;
+                        height: 80px;
+                    }
+                    .lds-spinner div {
+                        transform-origin: 40px 40px;
+                        animation: lds-spinner 1.2s linear infinite;
+                    }
+                    .lds-spinner div:after {
+                        content: ' ';
+                        display: block;
+                        position: absolute;
+                        top: 28px;
+                        left: 37px;
+                        width: 2px;
+                        height: 10px;
+                        border-radius: 20%;
+                        background: #45d9fc;
+                    }
+                    .lds-spinner div:nth-child(1) {
+                        transform: rotate(0deg);
+                        animation-delay: -1.1s;
+                    }
+                    .lds-spinner div:nth-child(2) {
+                        transform: rotate(30deg);
+                        animation-delay: -1s;
+                    }
+                    .lds-spinner div:nth-child(3) {
+                        transform: rotate(60deg);
+                        animation-delay: -0.9s;
+                    }
+                    .lds-spinner div:nth-child(4) {
+                        transform: rotate(90deg);
+                        animation-delay: -0.8s;
+                    }
+                    .lds-spinner div:nth-child(5) {
+                        transform: rotate(120deg);
+                        animation-delay: -0.7s;
+                    }
+                    .lds-spinner div:nth-child(6) {
+                        transform: rotate(150deg);
+                        animation-delay: -0.6s;
+                    }
+                    .lds-spinner div:nth-child(7) {
+                        transform: rotate(180deg);
+                        animation-delay: -0.5s;
+                    }
+                    .lds-spinner div:nth-child(8) {
+                        transform: rotate(210deg);
+                        animation-delay: -0.4s;
+                    }
+                    .lds-spinner div:nth-child(9) {
+                        transform: rotate(240deg);
+                        animation-delay: -0.3s;
+                    }
+                    .lds-spinner div:nth-child(10) {
+                        transform: rotate(270deg);
+                        animation-delay: -0.2s;
+                    }
+                    .lds-spinner div:nth-child(11) {
+                        transform: rotate(300deg);
+                        animation-delay: -0.1s;
+                    }
+                    .lds-spinner div:nth-child(12) {
+                        transform: rotate(330deg);
+                        animation-delay: 0s;
+                    }
+                    @keyframes lds-spinner {
+                        0% {
+                            opacity: 1;
+                        }
+                        100% {
+                            opacity: 0;
+                        }
+                    }
+                }
+
+                .modal-footer__info-right {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 6px;
+
+                    .modal-footer__info-right__price {
+                        font-family: $font-odibee;
+                        font-weight: var(--font-weight);
+                        font-size: 18px;
+                        line-height: 22px;
+                        color: #f25ac9;
+                    }
+                }
+            }
+        }
+    }
+}

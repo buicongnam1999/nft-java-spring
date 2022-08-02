@@ -6,6 +6,7 @@ import Product from 'layout/admin/product';
 import LoginHome from 'layout/home/login/LoginHome';
 import HomePage from 'layout/home/HomePage';
 import MarketPlace from 'layout/home/marketplace/MarketPlace';
+import AacceptOffer from "components/modal/AcceptOffer/AacceptOffer";
 
 export const routesPage = [
     {
@@ -71,6 +72,11 @@ export const routesHome = [
     {
         path: '/market/*',
         component: <MarketPlace />,
+        route: Route
+    },
+    {
+        path: '/testaccpetoffer',
+        component: <AacceptOffer />,
         route: Route
     }
 ]
