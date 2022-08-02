@@ -18,6 +18,7 @@ import { useDispatch } from 'react-redux';
 import * as marketActions from 'actions/market';
 import MarketPage from 'components/home/marketplace/MarketPage';
 import ModalLoad from 'components/modal/ModalLoad';
+import InputSlider from 'components/home/inputs/InputSlider';
 
 export default function MarketPlace() {
     const [defaultSelect, setDefaultSelect] = useState(0);
@@ -26,8 +27,10 @@ export default function MarketPlace() {
     const pageStatusTmp = Storage.get('pageStatusMarket');
     const [nfts, setNfts] = useState();
     const [numberButtons, setNumberButtons] = useState();
+    const [pageNft, setPageNft] = useState();
+    const [slider, setSlider] = useState();
     const [filter, setFilter] = useState(
-        pageStatusTmp !== null ? pageStatusTmp : 1
+        pageStatusTmp !== null ? pageStatusTmp : 0
     )
     const selectOption = (value) => {
         setDefaultSelect(value);
@@ -48,7 +51,7 @@ export default function MarketPlace() {
 
     useEffect(() => {
         const loadData = async () => {
-            let result = await marketActions.fetchItemList();
+            let result = await marketActions.fetchItemList(filter);
             if (result !== undefined && result.status) {
                 const items = result.data;
                 setNfts(items);
@@ -58,27 +61,7 @@ export default function MarketPlace() {
             let result = await marketActions.fetchItemCount();
             if (result !== undefined && result.status) {
                 let page = Math.ceil(result.data / 8);
-                var indents = [];
-                for (var i = 0; i < page; i++) {
-                    if (i === 0) {
-                        indents.push(
-                            {
-                                number: i,
-                                display: true,
-                                active: true
-                            }
-                        );
-                        continue;
-                    }
-                    indents.push(
-                        {
-                            number: i,
-                            display: true,
-                            active: false
-                        }
-                    );
-                }
-                setNumberButtons(indents);
+                setNumberButtons(page);
             }
         }
         return () => {
@@ -88,7 +71,7 @@ export default function MarketPlace() {
     },
         [
             filter,
-            // nfts,
+            nfts,
             // countNft
         ])
 
@@ -111,15 +94,7 @@ export default function MarketPlace() {
     }
 
     const nextPage = (page) => {
-        if (page) {
-            const state = numberButtons.map((element) => {
-                if (element.number === (page - 1)) {
-                    return { ...element, active: true };
-                }
-                return { ...element, active: false };
-            });
-            setNumberButtons(state);
-        }
+        setFilter(page);
     }
 
     return (
@@ -189,7 +164,6 @@ export default function MarketPlace() {
                             </Col>
                         </Row>
                     </Container>
-
                 </div>
             </div>
         </>

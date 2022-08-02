@@ -1,6 +1,7 @@
 import ButtonCyan from "components/home/buttons/ButtonCyan";
 import ButtonSelectRobot from "components/home/buttons/ButtonSelectRobot";
 import CheckboxMarket from "components/home/checkbox/CheckboxMarket";
+import InputSlider from "components/home/inputs/InputSlider";
 import { Route, Routes, Link } from "react-router-dom";
 
 const renderRouteChild = (params) => {
@@ -57,7 +58,7 @@ export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
                                     param.type === "click" && <ul>
                                         {
                                             param.child && param.child.map((e, index) =>
-                                                <li>
+                                                <li key={index}>
                                                     <div className="form-group">
                                                         <CheckboxMarket key={index} name={e.name} checkBox={checkBox} />
                                                     </div>
@@ -70,6 +71,15 @@ export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
                                     param.type === "select" && <div style={{ paddingBottom: '10px' }}>
                                         <ButtonSelectRobot>Select Robot</ButtonSelectRobot>
                                         <ButtonCyan>Geisha</ButtonCyan>
+                                    </div>
+                                }
+                                {
+                                    param.type === "slider" && <div>
+                                        {
+                                            param.child && param.child.map((e, index) =>
+                                            <InputSlider max="100" min="0" step="20" title={e.name} />
+                                            )
+                                        }
                                     </div>
                                 }
                             </span> :

@@ -196,10 +196,21 @@ export const navbarMarket = [
     {
         name: "Stats",
         active: false,
-        type: "input"
+        type: "slider",
+        child: [
+            {
+                name: "Life"
+            }
+        ]
     },
     {
         name: "Antiquity",
         active: false,
+        type: "slider",
+        child: [
+            {
+                name: "Life"
+            }
+        ]
     }
 ]
