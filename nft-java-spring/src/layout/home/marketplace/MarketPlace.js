@@ -17,16 +17,15 @@ import Storage from 'ultis/storage';
 import { useDispatch } from 'react-redux';
 import * as marketActions from 'actions/market';
 import MarketPage from 'components/home/marketplace/MarketPage';
-const ModalLoad = React.lazy(() => import('components/modal/ModalLoad'));
+import ModalLoad from 'components/modal/ModalLoad';
 
 export default function MarketPlace() {
     const [defaultSelect, setDefaultSelect] = useState(0);
     const [navbar, setNavbar] = useState(navbarMarket);
     const [showModal, setShowModal] = useState(false);
     const pageStatusTmp = Storage.get('pageStatusMarket');
-    const dispatch = useDispatch();
     const [nfts, setNfts] = useState();
-    const [pageNft, setPageNft] = useState();
+    const [numberButtons, setNumberButtons] = useState();
     const [filter, setFilter] = useState(
         pageStatusTmp !== null ? pageStatusTmp : 1
     )
@@ -48,11 +47,6 @@ export default function MarketPlace() {
     }
 
     useEffect(() => {
-        // const fetchData = () => {
-        //     dispatch(
-        //         marketActions.fetchItemList()
-        //     )
-        // }
         const loadData = async () => {
             let result = await marketActions.fetchItemList();
             if (result !== undefined && result.status) {
@@ -64,8 +58,27 @@ export default function MarketPlace() {
             let result = await marketActions.fetchItemCount();
             if (result !== undefined && result.status) {
                 let page = Math.ceil(result.data / 8);
-                console.log(page);
-                setPageNft(3);
+                var indents = [];
+                for (var i = 0; i < page; i++) {
+                    if (i === 0) {
+                        indents.push(
+                            {
+                                number: i,
+                                display: true,
+                                active: true
+                            }
+                        );
+                        continue;
+                    }
+                    indents.push(
+                        {
+                            number: i,
+                            display: true,
+                            active: false
+                        }
+                    );
+                }
+                setNumberButtons(indents);
             }
         }
         return () => {
@@ -79,14 +92,13 @@ export default function MarketPlace() {
             // countNft
         ])
 
-
     const checkBox = (name) => {
         if (name) {
-            const newState = navbar.map(object => {
+            const state = navbar.map(object => {
                 if (object.child) {
                     object.child.map((e) => {
                         if (e.name === name) {
-                            return { ...e, activeChild: true }
+                            return { ...e, activeChild: true };
                         }
                         return e;
                     })
@@ -94,7 +106,19 @@ export default function MarketPlace() {
 
                 return object;
             });
-            setNavbar(newState);
+            setNavbar(state);
+        }
+    }
+
+    const nextPage = (page) => {
+        if (page) {
+            const state = numberButtons.map((element) => {
+                if (element.number === (page - 1)) {
+                    return { ...element, active: true };
+                }
+                return { ...element, active: false };
+            });
+            setNumberButtons(state);
         }
     }
 
@@ -135,19 +159,22 @@ export default function MarketPlace() {
                                     </div>
                                 </div>
                                 {nfts &&
-                                    <div className='list-nft'>
-                                        {nfts.map((nft, index) =>
-                                            <HeroCard
-                                                key={index}
-                                                showModal={setShowModal}
-                                                nftPrice={nft.nftPrice}
-                                                nftLife={nft.nft.nftLife}
-                                                nftAttack={nft.nft.nftAttack}
-                                                nftDef={nft.nft.nftDef}
-                                                nftSpeed={nft.nft.nftSpeed}
-                                                nft={nft.nft}
-                                            />
-                                        )}
+                                    <div className='list'>
+                                        <div className='list-nft'>
+                                            {nfts.map((nft, index) =>
+                                                <HeroCard
+                                                    key={index}
+                                                    showModal={setShowModal}
+                                                    nftPrice={nft.nftPrice}
+                                                    nftLife={nft.nft.nftLife}
+                                                    nftAttack={nft.nft.nftAttack}
+                                                    nftDef={nft.nft.nftDef}
+                                                    nftSpeed={nft.nft.nftSpeed}
+                                                    nft={nft.nft}
+                                                />
+                                            )}
+                                        </div>
+                                        <MarketPage numberButtons={numberButtons} nextPage={nextPage} />
                                     </div>
                                 }
                                 {!nfts && <div className='not-nft'>
@@ -159,11 +186,10 @@ export default function MarketPlace() {
                                     </div>
                                 </div>
                                 }
-                                <MarketPage page={pageNft}/>
                             </Col>
                         </Row>
                     </Container>
-                    
+
                 </div>
             </div>
         </>

@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 
 export default function ButtonPage(props) {
-    const [active, setActive] = useState(false)
     return (
-        <div className='btn-page'>
-            {active ?
-                <div className='active'>
-                    {props.children}
+        <>
+            {props.active ?
+                <div className='btn-page-active'>
+                    <div>
+                        {props.children}
+                    </div>
                 </div> :
-                <div>
-                    {props.children}
+                <div className='btn-page' onClick={() => props.nextPage(props.children)}>
+                    <div>
+                        {props.children}
+                    </div>
                 </div>
             }
-
-
-        </div>
+        </>
     )
 }
