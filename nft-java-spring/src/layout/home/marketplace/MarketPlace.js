@@ -17,7 +17,8 @@ import Storage from 'ultis/storage';
 import { useDispatch } from 'react-redux';
 import * as marketActions from 'actions/market';
 import MarketPage from 'components/home/marketplace/MarketPage';
-const ModalLoad = React.lazy(() => import('components/modal/ModalLoad'));
+import ModalLoad from 'components/modal/ModalLoad';
+import InputSlider from 'components/home/inputs/InputSlider';
 
 export default function MarketPlace() {
     const [defaultSelect, setDefaultSelect] = useState(0);
@@ -27,6 +28,7 @@ export default function MarketPlace() {
     const dispatch = useDispatch();
     const [nfts, setNfts] = useState();
     const [pageNft, setPageNft] = useState();
+    const [slider, setSlider] = useState();
     const [filter, setFilter] = useState(
         pageStatusTmp !== null ? pageStatusTmp : 1
     )
@@ -48,11 +50,6 @@ export default function MarketPlace() {
     }
 
     useEffect(() => {
-        // const fetchData = () => {
-        //     dispatch(
-        //         marketActions.fetchItemList()
-        //     )
-        // }
         const loadData = async () => {
             let result = await marketActions.fetchItemList();
             if (result !== undefined && result.status) {
@@ -163,7 +160,6 @@ export default function MarketPlace() {
                             </Col>
                         </Row>
                     </Container>
-                    
                 </div>
             </div>
         </>
