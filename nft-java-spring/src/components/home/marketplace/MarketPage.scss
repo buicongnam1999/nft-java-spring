@@ -1,0 +1,15 @@
+.paging {
+    &-content {
+        display: inline-flex;
+        .back-icon, .next-icon {
+            color: #45D9FC;
+            line-height: 30px;
+            padding-right: 10px;
+            background: none;
+            border: none;
+        }
+    }
+    width: 50%;
+    margin: 20px auto;
+    text-align: center;
+}

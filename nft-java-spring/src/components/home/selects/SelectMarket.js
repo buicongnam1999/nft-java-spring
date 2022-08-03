@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Select.scss';
 
-export default function
-    (props) {
-    const [showOptionList, setShowOptionList] = useState(true);
-
+export default function SelectMarket(props) {
     const selectOption = (param) => {
         props.selectOption(param);
     }
 
     const renderSelectMarket = (params) => {
-        let options = <>
-            {
+        return <>{
                 props.sortList.map((param) =>
                     <option
                         data-name={param.name}
@@ -23,7 +19,6 @@ export default function
                     </option>
                 )
             }</>
-        return options;
     }
 
     return (

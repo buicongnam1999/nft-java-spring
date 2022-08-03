@@ -5,12 +5,10 @@ import {
 import { routesPage } from 'constants/index';
 import { renderRoutes } from 'ultis/helper';
 
-export const Index = () => {
+export const IndexRouter = () => {
     return (
-        <div>
-            <BrowserRouter>
-                {renderRoutes(routesPage)}
-            </BrowserRouter>
-        </div>
+        <BrowserRouter>
+            {renderRoutes(routesPage)}
+        </BrowserRouter>
     )
 }

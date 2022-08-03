@@ -1,25 +1,20 @@
 import ButtonCyan from "components/home/buttons/ButtonCyan";
 import ButtonSelectRobot from "components/home/buttons/ButtonSelectRobot";
 import CheckboxMarket from "components/home/checkbox/CheckboxMarket";
-import { Route, Routes, Link, useLocation } from "react-router-dom";
+import InputSlider from "components/home/inputs/InputSlider";
+import { Route, Routes, Link } from "react-router-dom";
 
 const renderRouteChild = (params) => {
-    let routes = <Route>
+    return <>
         {
             params && params.map((param) =>
-                <Route path={param.path} element={param.component} key={param.path}>
-                    {
-                        param.child
-                    }
-                </Route>
+                <Route path={param.path} element={param.component} key={param.path}></Route>
             )
         }
-    </Route>
-
-    return routes;
+    </>
 }
 export const renderRoutes = (params) => {
-    let routes = <Routes>
+    return <Routes>
         {
             params && params.map((param) =>
                 <Route exact path={param.path} element={param.component} key={param.path}>
@@ -29,12 +24,12 @@ export const renderRoutes = (params) => {
                 </Route>
             )
         }
+        {/* <Route /> */}
     </Routes>
-    return routes;
 }
 
 export const renderNav = (params) => {
-    let navbar = <ul>
+    return <ul>
         {
             params && params.map((param) =>
                 param.active ?
@@ -47,15 +42,13 @@ export const renderNav = (params) => {
             )
         }
     </ul>
-
-    return navbar;
 }
 
 export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
-    let navbar = <ul style={{ padding: '0 5px 0 0' }}>
+    return <ul style={{ padding: '0 5px 0 0' }}>
         {
             params && params.map((param) =>
-                <li>
+                <li key={param.name}>
                     <span onClick={() => openOrCloseNav(param.name)}>{param.name}</span>
                     {
                         param.active ?
@@ -65,7 +58,7 @@ export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
                                     param.type === "click" && <ul>
                                         {
                                             param.child && param.child.map((e, index) =>
-                                                <li>
+                                                <li key={index}>
                                                     <div className="form-group">
                                                         <CheckboxMarket key={index} name={e.name} checkBox={checkBox} />
                                                     </div>
@@ -80,6 +73,15 @@ export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
                                         <ButtonCyan>Geisha</ButtonCyan>
                                     </div>
                                 }
+                                {
+                                    param.type === "slider" && <div>
+                                        {
+                                            param.child && param.child.map((e, index) =>
+                                                <InputSlider key={index} max={100} min={0} step={20} title={e.name} />
+                                            )
+                                        }
+                                    </div>
+                                }
                             </span> :
                             <span>
                                 <i className="fa fa-angle-down" aria-hidden="true" onClick={() => openOrCloseNav(param.name)}></i>
@@ -89,37 +91,35 @@ export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
             )
         }
     </ul>
-
-    return navbar;
 }
 
-export const renderLoad = (value) => {
-    let loader = <div class="loader">
-        <div class="box box0">
+export const renderLoad = () => {
+    return <div className="loader">
+        <div className="box box0">
             <div></div>
         </div>
-        <div class="box box1">
+        <div className="box box1">
             <div></div>
         </div>
-        <div class="box box2">
+        <div className="box box2">
             <div></div>
         </div>
-        <div class="box box3">
+        <div className="box box3">
             <div></div>
         </div>
-        <div class="box box4">
+        <div className="box box4">
             <div></div>
         </div>
-        <div class="box box5">
+        <div className="box box5">
             <div></div>
         </div>
-        <div class="box box6">
+        <div className="box box6">
             <div></div>
         </div>
-        <div class="box box7">
+        <div className="box box7">
             <div></div>
         </div>
-        <div class="ground">
+        <div className="ground">
             <div></div>
         </div>
     </div>

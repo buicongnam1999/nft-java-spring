@@ -58,11 +58,29 @@ $colorBlack: #08090c;
 }
 @media screen and (max-width: 1920px) {
     .App {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .App {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .App {
+        width: 104%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .App {
         width: 110%;
     }
 }
 
-@media screen and (min-width: 360px) {
+@media screen and (max-width: 360px) {
     .App {
         width: 100%;
     }

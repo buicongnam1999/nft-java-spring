@@ -15,7 +15,9 @@ export default function Home() {
     <div>
       <Header t={t} i18n={i18n} />
       { renderRoutes(routesHome) }
-      <ToastContainer position="bottom-end">
+      <ToastContainer 
+        position="bottom-end"
+      >
           <ToastALert onCloseToast={() => setShow(false)} show={show} variant="Dark" time="11s" body="abc" header="bootstrap"/>
       </ToastContainer>
       <Footer />

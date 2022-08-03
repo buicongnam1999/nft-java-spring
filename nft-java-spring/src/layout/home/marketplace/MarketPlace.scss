@@ -3,8 +3,7 @@ $font-odibee: Odibee Sans;
 
 .market {
     color: white;
-    width: 100%;
-    background: #08090c;
+    margin: 0 auto;
     background: #08090c;
     border-bottom: 1px solid white;
     padding-bottom: 25px;
@@ -159,13 +158,37 @@ $font-odibee: Odibee Sans;
             }
         }
 
-        .list-nft {
+        .list {
             width: 80%;
             height: auto;
             background-color: rgba(44, 45, 58, 0.6);
             margin: 0 35px;
-            display: grid;
-            grid-template-columns: auto auto;
+            &-nft {
+                display: grid;
+                grid-template-columns: auto auto;
+            }
+        }
+
+        .not-nft {
+            &-img {
+                width: 80%;
+                margin: 0 auto;
+                line-height: 50vh;
+                img {
+                    display: block;
+                    margin: auto;
+                }
+            }
+            &-text {
+                width: 80%;
+                font-family: $font-biger;
+                margin: 25px auto;
+                height: 100vh;
+                text-align: center;
+            }
+            width: 90%;
+            background-color: rgba(44, 45, 58, 0.6);
+            margin: 0 35px;
         }
 
         @media screen and (max-width: 1520px) {
@@ -181,8 +204,6 @@ $font-odibee: Odibee Sans;
     .market {
         color: white;
         width: 100%;
-        background: #08090c;
-        background: #08090c;
         border-bottom: 1px solid white;
         padding-bottom: 25px;
     
@@ -297,11 +318,11 @@ $font-odibee: Odibee Sans;
             }
     
             .market-list {
-                margin: 20px 35px;
-                display: flex;
-                justify-content: space-between;
-                border-bottom: 2px solid #45d9fc;
-                padding-bottom: 20px;
+                // margin: 20px 35px;
+                // display: flex;
+                // justify-content: space-between;
+                // border-bottom: 2px solid #45d9fc;
+                // padding-bottom: 20px;
                 width: 90%;
                 .title-list {
                     font-family: $font-biger;
@@ -336,13 +357,23 @@ $font-odibee: Odibee Sans;
                 }
             }
     
-            .list-nft {
+            .list {
                 width: 80%;
-                height: auto;
-                background-color: rgba(44, 45, 58, 0.6);
+                &-nft {
+                    width: 100%;
+                }
+            }
+
+            .not-nft {
+                &-img {
+                    padding-top: 50px;
+                    img {
+                        
+                    }
+                }
+                &-text {
+                }
                 margin: 0 35px;
-                display: grid;
-                grid-template-columns: auto auto;
             }
     
             @media screen and (max-width: 1520px) {
@@ -366,6 +397,7 @@ $font-odibee: Odibee Sans;
 
             .market-list {
                 margin: 25px auto;
+                justify-content: end;
                 .market-sort {
                     display: flex;
     
@@ -374,6 +406,11 @@ $font-odibee: Odibee Sans;
                         font-size: 24px;
                     }
                 }
+            }
+
+            .list {
+                width: 100%;
+                margin: 0;
             }
         }
     }
@@ -389,9 +426,11 @@ $font-odibee: Odibee Sans;
                 }
             }
 
-            .list-nft {
-                width: 100%;
-                margin: 0;
+            .list {
+                &-nft {
+                    width: 100%;
+                    margin: 0;
+                }
             }
         }
     }
@@ -414,11 +453,27 @@ $font-odibee: Odibee Sans;
                         font-size: 24px;
                     }
                 }
+                .title-list {
+                    display: none;
+                }
             }
     
-            .list-nft {
-                width: 100%;
-                margin: 0;
+            .list {
+                &-nft {
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+            .not-nft {
+                &-img {
+                    padding-top: 50px;
+                    img {
+                        
+                    }
+                }
+                &-text {
+                }
+                margin: 0 auto;
             }
         }
     }
@@ -438,6 +493,13 @@ $font-odibee: Odibee Sans;
                 }
                 .title-list {
                     display: none;
+                }
+            }
+
+            .list {
+                &-nft {
+                    width: 100%;
+                    margin: 0;
                 }
             }
         }

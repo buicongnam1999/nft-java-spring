@@ -8,10 +8,14 @@ import HomePage from 'layout/home/HomePage';
 import MarketPlace from 'layout/home/marketplace/MarketPlace';
 import AacceptOffer from 'components/modal/AcceptOffer/AacceptOffer';
 import MainHome from 'layout/home/home';
+import IndexMarket from 'layout/home/marketplace/index';
+import NftDetail from 'layout/home/marketplace/NftDetail';
+import NotFound from "layout/home/NotFound";
+import * as routePath from 'configs/route_path';
 
 export const routesPage = [
     {
-        path: '/*',
+        path: routePath.HOME_PATH,
         component: <Home />,
         route: Route,
         child: [
@@ -23,7 +27,7 @@ export const routesPage = [
         ],
     },
     {
-        path: '/admin/*',
+        path: routePath.ADMIN_PATH,
         component: <Admin />,
         route: Route,
         child: [
@@ -43,17 +47,17 @@ export const routesPage = [
 
 export const routesAdmin = [
     {
-        path: '/',
+        path: routePath.ADMIN_PATH,
         component: <Product />,
         route: Route,
     },
     {
-        path: '/user',
+        path: routePath.USER_PATH,
         component: <User />,
         route: Route,
     },
     {
-        path: '/product',
+        path: routePath.NFT_PATH,
         component: <Product />,
         route: Route,
     },
@@ -61,33 +65,38 @@ export const routesAdmin = [
 
 export const routesHome = [
     {
-        path: '/',
+        path: routePath.HOME_PATH,
         component: <HomePage />,
         route: Route,
     },
     {
-        path: '/login',
+        path: routePath.LOGIN_GREETING_PATH,
         component: <LoginHome />,
         route: Route,
     },
     {
-        path: '/market/*',
-        component: <MarketPlace />,
-        route: Route,
+        path: routePath.MARKET_PATH,
+        component: <IndexMarket />,
+        route: Route
     },
     {
-        path: '/testaccpetoffer',
-        component: <AacceptOffer />,
-        route: Route,
-    },
-    {
-        path: '/home',
-        component: <MainHome />,
-        route: Route,
-    },
-];
+        path: routePath.PAGE_NOT_FOUND,
+        component: <NotFound />,
+        route: Route
+    }
+]
 
-export const ToastAlert = [];
+export const routeMarket = [
+    {
+        path: routePath.NFT_PATH,
+        component: <NftDetail />,
+        route: Route
+    },
+]
+
+export const ToastAlert = [
+
+]
 
 export const sortList = [
     {
@@ -190,10 +199,21 @@ export const navbarMarket = [
     {
         name: 'Stats',
         active: false,
-        type: 'input',
+        type: "slider",
+        child: [
+            {
+                name: "Life"
+            }
+        ]
     },
     {
         name: 'Antiquity',
         active: false,
-    },
-];
+        type: "slider",
+        child: [
+            {
+                name: "Life"
+            }
+        ]
+    }
+]

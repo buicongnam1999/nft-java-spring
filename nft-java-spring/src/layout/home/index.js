@@ -14,7 +14,6 @@ export const Home = () => {
             <BrowserRouter>
                 <Routes>
                     <Route>
-
                     </Route>
                 </Routes>
             </BrowserRouter>

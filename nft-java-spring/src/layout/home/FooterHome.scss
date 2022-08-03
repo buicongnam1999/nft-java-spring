@@ -70,7 +70,7 @@ $font-odibee: Odibee Sans;
         border-top: 3px solid #45d9fc;
         font-family: Poppins;
         font-size: 12px;
-        line-height: 50px;
+        // line-height: 50px;
         height: 50px;
         background: rgba(8, 9, 12, 0.8);
 
@@ -101,6 +101,11 @@ $font-odibee: Odibee Sans;
                 ul li {
                     display: none;
                 }
+            }
+        }
+        &-copyright {
+            &-text {
+                width: 100%;
             }
         }
     }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Banner from 'components/home/marketplace/Banner';
 import './MarketPlace.scss';
 import Search from 'components/home/marketplace/left/Search';
@@ -12,12 +12,24 @@ import ButtonResetMarket from 'components/home/buttons/ButtonResetMarket';
 import { renderNavMarket } from 'ultis/helper';
 import { sortList, navbarMarket } from 'constants/index';
 import HeroCard from 'components/home/nft/HeroCard';
+import HeroNotFound from 'assets/images/hero/Hero-found.png';
+import Storage from 'ultis/storage';
+import { useDispatch } from 'react-redux';
+import * as marketActions from 'actions/market';
+import MarketPage from 'components/home/marketplace/MarketPage';
 import ModalLoad from 'components/modal/ModalLoad';
+import InputSlider from 'components/home/inputs/InputSlider';
 
 export default function MarketPlace() {
     const [defaultSelect, setDefaultSelect] = useState(0);
     const [navbar, setNavbar] = useState(navbarMarket);
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(false);
+    const pageStatusTmp = Storage.get('pageStatusMarket');
+    const [nfts, setNfts] = useState();
+    const [numberButtons, setNumberButtons] = useState();
+    const [filter, setFilter] = useState(
+        pageStatusTmp !== null ? pageStatusTmp : 0
+    )
     const selectOption = (value) => {
         setDefaultSelect(value);
     };
@@ -35,9 +47,35 @@ export default function MarketPlace() {
         }
     };
 
+    useEffect(() => {
+        const loadData = async () => {
+            let result = await marketActions.fetchItemList(filter);
+            if (result !== undefined && result.status) {
+                const items = result.data;
+                setNfts(items);
+            }
+        }
+        const loadCountNft = async () => {
+            let result = await marketActions.fetchItemCount();
+            if (result !== undefined && result.status) {
+                let page = Math.ceil(result.data / 8);
+                setNumberButtons(page);
+            }
+        }
+        return () => {
+            loadData();
+            loadCountNft();
+        }
+    },
+        [
+            filter,
+            nfts,
+            // countNft
+        ])
+
     const checkBox = (name) => {
         if (name) {
-            const newState = navbar.map((object) => {
+            const state = navbar.map(object => {
                 if (object.child) {
                     object.child.map((e) => {
                         if (e.name === name) {
@@ -49,9 +87,13 @@ export default function MarketPlace() {
 
                 return object;
             });
-            setNavbar(newState);
+            setNavbar(state);
         }
     };
+
+    const nextPage = (page) => {
+        setFilter(page);
+    }
 
     return (
         <>
@@ -72,33 +114,7 @@ export default function MarketPlace() {
                                     <ButtonResetMarket />
                                 </div>
                                 <Search />
-                                <div className="navbar-market">
-                                    {/* <ul style={{ padding: '0 5px 0 0' }}>
-                                        <li>
-                                            <span>Body Part</span>
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                        </li>
-                                        <li>
-                                            <span>Rarity</span>
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                        </li>
-                                        <li>
-                                            <span>Family</span>
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                        </li>
-                                        <li>
-                                            <span>Robot</span>
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                        </li>
-                                        <li>
-                                            <span>Stats</span>
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                        </li>
-                                        <li>
-                                            <span>Antiquity</span>
-                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                        </li>
-                                    </ul> */}
+                                <div className='navbar-market'>
                                     {renderNavMarket(navbar, openOrCloseNav, checkBox)}
                                 </div>
                             </Col>
@@ -112,12 +128,34 @@ export default function MarketPlace() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="list-nft">
-                                    <HeroCard />
-                                    <HeroCard />
-                                    <HeroCard />
-                                    <HeroCard />
+                                {nfts &&
+                                    <div className='list'>
+                                        <div className='list-nft'>
+                                            {nfts.map((nft, index) =>
+                                                <HeroCard
+                                                    key={index}
+                                                    showModal={setShowModal}
+                                                    nftPrice={nft.nftPrice}
+                                                    nftLife={nft.nft.nftLife}
+                                                    nftAttack={nft.nft.nftAttack}
+                                                    nftDef={nft.nft.nftDef}
+                                                    nftSpeed={nft.nft.nftSpeed}
+                                                    nft={nft.nft}
+                                                />
+                                            )}
+                                        </div>
+                                        <MarketPage numberButtons={numberButtons} nextPage={nextPage} />
+                                    </div>
+                                }
+                                {!nfts && <div className='not-nft'>
+                                    <div className='not-nft-img'>
+                                        <img src={HeroNotFound} alt='' />
+                                    </div>
+                                    <div className='not-nft-text'>
+                                        Not Pieces found
+                                    </div>
                                 </div>
+                                }
                             </Col>
                         </Row>
                     </Container>
