@@ -5,3 +5,4 @@ export const ADMIN_PATH = '/admin/*';
 export const USER_PATH = '/user/:id';
 export const NFT_PATH = '/nft-detail/:id';
 export const PAGE_NOT_FOUND = '/page-not-found';
+export const MAIN_HOME = '/home';

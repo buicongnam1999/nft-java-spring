@@ -9,6 +9,7 @@ import IndexMarket from 'layout/home/marketplace/index';
 import NftDetail from 'layout/home/marketplace/NftDetail';
 import NotFound from 'layout/home/NotFound';
 import * as routePath from 'configs/route_path';
+import MainHome from 'layout/home/home';
 
 export const routesPage = [
     {
@@ -63,7 +64,7 @@ export const routesAdmin = [
 export const routesHome = [
     {
         path: routePath.HOME_PATH,
-        component: <HomePage />,
+        component: <MainHome />,
         route: Route,
     },
     {
