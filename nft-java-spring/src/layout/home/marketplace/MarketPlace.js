@@ -73,6 +73,32 @@ export default function MarketPlace() {
             // countNft
         ])
 
+    useEffect(() => {
+        const loadData = async () => {
+            let result = await marketActions.fetchItemList(filter);
+            if (result !== undefined && result.status) {
+                const items = result.data;
+                setNfts(items);
+            }
+        }
+        const loadCountNft = async () => {
+            let result = await marketActions.fetchItemCount();
+            if (result !== undefined && result.status) {
+                let page = Math.ceil(result.data / 8);
+                setNumberButtons(page);
+            }
+        }
+        return () => {
+            loadData();
+            loadCountNft();
+        }
+    },
+        [
+            filter,
+            nfts,
+            // countNft
+        ])
+
     const checkBox = (name) => {
         if (name) {
             const state = navbar.map(object => {
@@ -90,6 +116,10 @@ export default function MarketPlace() {
             setNavbar(state);
         }
     };
+
+    const nextPage = (page) => {
+        setFilter(page);
+    }
 
     const nextPage = (page) => {
         setFilter(page);

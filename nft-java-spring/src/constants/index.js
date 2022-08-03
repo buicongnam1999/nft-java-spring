@@ -7,7 +7,8 @@ import LoginHome from 'layout/home/login/LoginHome';
 import HomePage from 'layout/home/HomePage';
 import IndexMarket from 'layout/home/marketplace/index';
 import NftDetail from 'layout/home/marketplace/NftDetail';
-import NotFound from 'layout/home/NotFound';
+
+import NotFound from "layout/home/NotFound";
 import * as routePath from 'configs/route_path';
 import MainHome from 'layout/home/home';
 
@@ -75,22 +76,30 @@ export const routesHome = [
     {
         path: routePath.MARKET_PATH,
         component: <IndexMarket />,
-        route: Route,
+
+        route: Route
+
     },
     {
         path: routePath.PAGE_NOT_FOUND,
         component: <NotFound />,
-        route: Route,
-    },
-];
+
+        route: Route
+    }
+]
+
 
 export const routeMarket = [
     {
         path: routePath.NFT_PATH,
         component: <NftDetail />,
-        route: Route,
+
+        route: Route
     },
-];
+]
+
+export const ToastAlert = [
+
 
 export const ToastAlert = [];
 
@@ -195,21 +204,25 @@ export const navbarMarket = [
     {
         name: 'Stats',
         active: false,
-        type: 'slider',
+
+        type: "slider",
         child: [
             {
-                name: 'Life',
-            },
-        ],
+                name: "Life"
+            }
+        ]
+
     },
     {
         name: 'Antiquity',
         active: false,
-        type: 'slider',
+
+        type: "slider",
         child: [
             {
-                name: 'Life',
-            },
-        ],
-    },
-];
+                name: "Life"
+            }
+        ]
+    }
+]
+
