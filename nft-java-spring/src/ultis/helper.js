@@ -77,7 +77,7 @@ export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
                                     param.type === "slider" && <div>
                                         {
                                             param.child && param.child.map((e, index) =>
-                                            <InputSlider max="100" min="0" step="20" title={e.name} />
+                                                <InputSlider key={index} max={100} min={0} step={20} title={e.name} />
                                             )
                                         }
                                     </div>
@@ -93,7 +93,7 @@ export const renderNavMarket = (params, openOrCloseNav, checkBox) => {
     </ul>
 }
 
-export const renderLoad = (value) => {
+export const renderLoad = () => {
     return <div className="loader">
         <div className="box box0">
             <div></div>

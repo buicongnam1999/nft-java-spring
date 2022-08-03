@@ -45,10 +45,10 @@ $colorBlack: #08090C;
         width: 50%;
         background-color: #1e1f28;
         font-family: Odibee Sans;
-        padding: 4px 32px;
         color: $colorBlue;
         text-align: center;
         font-size: 24px;
+        line-height: 44px;
     }
 
     &-cyan {
@@ -58,11 +58,13 @@ $colorBlack: #08090C;
         font-size: 20px;
         width: 19%;
     }
+
     &-buy {
         background: $colorBlue;
         width: 50%;
         line-height: 44px;
     }
+
     &-page {
         cursor: pointer;
         color: white;
@@ -90,6 +92,7 @@ $colorBlack: #08090C;
     background-color: #04aa6d;
     color: white;
 }
+
 .info {
     border: 2px solid #2196f3;
     color: dodgerblue;
@@ -99,6 +102,7 @@ $colorBlack: #08090C;
     background: #2196f3;
     color: white;
 }
+
 .warning {
     border: 2px solid #ff9800;
     color: orange;
@@ -108,6 +112,7 @@ $colorBlack: #08090C;
     background: #ff9800;
     color: white;
 }
+
 .danger {
     border: 2px solid #f44336 !important;
     color: red !important;
@@ -117,6 +122,7 @@ $colorBlack: #08090C;
     background: #f44336;
     color: white !important;
 }
+
 .default {
     border: 2px solid #e7e7e7;
     color: black;
@@ -147,7 +153,17 @@ $colorBlack: #08090C;
     }
 }
 
-@media screen and (min-width: 360px) { 
+@media screen and (max-width: 767px) { 
+    .btn {
+        &-select, &-buy {
+            font-size: 15px;
+            line-height: 44px;
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width: 360px) { 
     .btn {
         font-size: 13px;
         &-pieces, &-complete  {

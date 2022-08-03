@@ -27,8 +27,6 @@ export default function MarketPlace() {
     const pageStatusTmp = Storage.get('pageStatusMarket');
     const [nfts, setNfts] = useState();
     const [numberButtons, setNumberButtons] = useState();
-    const [pageNft, setPageNft] = useState();
-    const [slider, setSlider] = useState();
     const [filter, setFilter] = useState(
         pageStatusTmp !== null ? pageStatusTmp : 0
     )

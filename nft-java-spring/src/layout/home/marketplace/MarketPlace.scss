@@ -397,6 +397,7 @@ $font-odibee: Odibee Sans;
 
             .market-list {
                 margin: 25px auto;
+                justify-content: end;
                 .market-sort {
                     display: flex;
     
@@ -451,6 +452,9 @@ $font-odibee: Odibee Sans;
                         font-family: $font-odibee;
                         font-size: 24px;
                     }
+                }
+                .title-list {
+                    display: none;
                 }
             }
     

@@ -19,3 +19,13 @@ export const fetchItemCount = async () => {
         throw err;
     }
 }
+
+export const findItemById = async (id) => {
+    try {
+        const result = await http.get(`marketplace/nft-sale/findById/${id}`);
+        
+        return result;
+    } catch (err) {
+        throw err;
+    }
+}

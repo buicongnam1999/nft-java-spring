@@ -59,12 +59,10 @@ $fontBiger: Biger Over;
             }
 
             .nft {
-
                 &-life,
                 &-att,
                 &-def,
                 &-spe {
-
                     &-text,
                     &-percent {
                         width: 20%;
@@ -212,6 +210,7 @@ $fontBiger: Biger Over;
 
 @media screen and (max-width: 500px) {
     .card-market {
+        width: 95%;
         &-hero {
             &-image {
                 img {
@@ -228,6 +227,11 @@ $fontBiger: Biger Over;
             font-size: 15px;
             text-align: right;
             // padding: 0 -6px;
+        }
+        .card {
+            &-info {
+                font-size: 15px;
+            }
         }
     }
 }

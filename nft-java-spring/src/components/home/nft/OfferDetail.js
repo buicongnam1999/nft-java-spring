@@ -8,7 +8,7 @@ export default function OfferDetail(props) {
                 {props.title}
             </div>
             <div className='offer-content'>
-                {props.content}
+                {props.children}
             </div>
         </div>
     )

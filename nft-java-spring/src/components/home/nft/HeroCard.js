@@ -20,7 +20,7 @@ export default function HeroCard(props) {
         <div className='card-market'>
             <div className='card-market-hero'>
                 <div className='card-market-hero-image'>
-                    <img src={Hero} alt='' />
+                    <img src={require(`assets/images/hero/${props.nft.nftThumbnail}`)} alt='' />
                 </div>
                 <div className='card-market-hero-name'>
                     <div className='card-market-type'>
