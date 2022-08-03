@@ -1,11 +1,14 @@
-import { Index } from './routes';
+import { IndexRouter } from './routes';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import { connectRouter } from "connected-react-router";
 
-function App() {
+function App({ history }) {
   return (
-    <div className="App" style={{width: '100%'}}>
-      <Index />
-    </div>
+    // <connectRouter history={history}>
+      <div className="App">
+        <IndexRouter />
+      </div>
+    // </connectRouter>
   );
 }
 

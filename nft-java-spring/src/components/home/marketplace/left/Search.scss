@@ -4,14 +4,14 @@
     border-radius: 8px;
     height: 60px;
     background: #1e1f28;
-    .search-input {
+    &-input {
         display: flex;
         width: 320px;
-        .search-input-icon {
+        &-icon {
             margin-left: 15px;
             line-height: 55px;
         }
-        .search-input-text {
+        &-text {
             input[type="text"] {
                 font-family: Odibee Sans;
                 font-weight: 400px;
@@ -28,10 +28,18 @@
     }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 1400px) {
     .search {
         width: 100%;
-        column-gap: 15px;
+        &-input {
+            &-icon {
+            }
+            &-text {
+                input[type="text"] {
+                    width: 100%;
+                }
+            }
+        }
     }
 }
 

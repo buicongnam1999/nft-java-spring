@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import './HeaderHome.scss'
-import Logo from 'assets/images/logo/logo-footer.png';
 import ButtonDanger from 'components/home/buttons/ButtonDanger';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import MenuIcon from 'assets/images/icon/menu-icon.png';
+import MedaCoinLogo from 'assets/images/logo/MedaCoinLogo.png';
 
 export default function Header(props) {
+    const navigate = useNavigate();
     const location = useLocation();
     const [user, setUser] = useState(null);
     // const [currentPath, setCurrentPath] = useState(location.pathname);
@@ -26,15 +27,15 @@ export default function Header(props) {
             active: false
         },
         {
-            name: "Blog",
-            path: "/blog",
-            value: props.t('Blog'),
+            name: "Medatmon",
+            path: "/medatmon",
+            value: props.t('Medamon&Mon'),
             active: false
         },
         {
-            name: "Contact Us",
-            path: "/contact",
-            value: props.t('Contact Us'),
+            name: "Profile",
+            path: "/profile",
+            value: props.t('Profile'),
             active: false
         },
     ]
@@ -47,17 +48,16 @@ export default function Header(props) {
     useEffect(() => {
         function loadLocation() {
             if (location) {
-                // setCurrentPath(location.pathname);
-                // if (currentPath) {
-                const newState = navbarArr.map(e => {
-                    if (e.path === location.pathname) {
+                let pathArr = location.pathname.split("/");
+                pathArr[1] = pathArr[1] === ''? 'home' : pathArr[1];
+                const newState = navbarArr.map((e) => {
+                    if (e.name.toLowerCase() === pathArr[1]) {
                         return { ...e, active: true }
                     } else {
                         return { ...e, active: false }
                     }
                 });
                 setNavbar(newState);
-                // }
             }
         }
 
@@ -66,7 +66,7 @@ export default function Header(props) {
         }
     }, [])
 
-    const changeLocation = (name) => {
+    const changeLocation = (name, path) => {
         if (name) {
             const newState = navbarArr.map(e => {
                 if (e.name === name) {
@@ -77,26 +77,31 @@ export default function Header(props) {
             });
             setNavbar(newState);
         }
+        navigate(path)
     }
 
     const renderNav = (params) => {
-        let navbar = <ul>
+        return <ul>
             {
                 params && params.map((param) =>
                     param.active ?
-                        <li className="active" key={param.path}>
-                            <Link to={param.path}
-                                onClick={() => changeLocation(param.name)}
-                            >{param.value}</Link>
+                        <li className="active" key={param.path} onClick={() => changeLocation(param.name, param.path)}>
+                            <Link to=""
+                                onClick={() => changeLocation(param.name, param.path)}
+                            >
+                                {param.value}
+                            </Link>
                         </li> :
-                        <li key={param.path} onClick={() => changeLocation(param.name)}>
-                            <Link to={param.path} onClick={() => changeLocation(param.name)}>{param.value}</Link>
+                        <li key={param.path} onClick={() => changeLocation(param.name, param.path)}>
+                            <Link to="" 
+                                onClick={() => changeLocation(param.name, param.path)}
+                            >
+                                {param.value}
+                            </Link>
                         </li>
                 )
             }
         </ul>
-
-        return navbar;
     }
 
     return (
@@ -104,27 +109,14 @@ export default function Header(props) {
             <div className='header-content'>
                 <Container>
                     <Row>
-                        <Col className='header-left'>
+                        <Col className='header-left' xs={5}>
                             <div className='logo'>
-                                <img src={Logo} alt='' />
+                                <span><img src={MedaCoinLogo} alt='' /></span>
+                                <span className='header-left-name'>MEDABOTS</span>
                             </div>
                         </Col>
                         <Col className='header-right'>
                             <div className='navbar'>
-                                {/* <ul>
-                                    <li className='active'>
-                                        <Link to="/">{props.t('Home')}</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/market">{props.t('Market')}</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/market">{props.t('Blog')}</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/market">{props.t('Contact Us')}</Link>
-                                    </li>
-                                </ul> */}
                                 {renderNav(navbar)}
                             </div>
                             <div className='user'>
