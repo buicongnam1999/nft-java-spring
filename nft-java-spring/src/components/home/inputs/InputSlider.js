@@ -3,8 +3,7 @@ import InputRange from "react-input-range";
 import './InputSlider.scss';
 
 export default function InputSlider(props) {
-    const activeSlideRef = useRef("range-slider");
-    const [val, setVal] = useState({ min: 0, max: 100 });
+    const [val, setVal] = useState({ min: props.min, max: props.max });
     const onChangeValue = (args) => {
         console.log(args);
     }
@@ -16,22 +15,22 @@ export default function InputSlider(props) {
             <div>
                 <InputRange
                     step={props.step}
-                    formatLabel={value => null}
+                    // formatLabel={value => null}
                     draggableTrack={false}
                     allowSameValues={false}
                     maxValue={props.max}
                     minValue={props.min}
                     value={val}
                     onChange={setVal}
-                    onChangeComplete={args => onChangeValue(args)}
+                    onChangeComplete={(args) => onChangeValue(args)}
                 />
                 <div className='value-input-slider'>
                     <div className='min-input'>
-                        {props.min}
+                        {val.min}
                     </div>
                     <span>-</span>
                     <div className='max-input'>
-                        {props.max}
+                        {val.max}
                     </div>
                 </div>
             </div>

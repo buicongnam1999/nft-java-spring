@@ -130,3 +130,67 @@
         }
     }
 }
+
+@media screen and (max-width: 511px) {
+    .header {
+        &-content {
+            .header-left {
+                &-name {
+                    font-size: 18px !important;
+                }
+            }
+    
+            .header-right {
+                display: table-column-group !important;
+                .navbar, .user, .login {
+                    display: none;
+                }
+                .navbar-icon {
+                    display: block;
+                    line-height: 140px;
+                    float: right;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .header {
+        &-content {
+            .header-left {
+                &-name {
+                    font-size: 15px !important;
+                }
+                .logo img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+    
+            .header-right {
+                display: table-column-group !important;
+                .navbar, .user, .login {
+                    display: none;
+                }
+                .navbar-icon {
+                    display: block;
+                    line-height: 140px;
+                    float: right;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .header {
+        &-content {
+            .header-left {
+                &-name {
+                    font-size: 13px !important;
+                }
+            }
+        }
+    }
+}

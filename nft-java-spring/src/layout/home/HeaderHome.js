@@ -109,7 +109,7 @@ export default function Header(props) {
             <div className='header-content'>
                 <Container>
                     <Row>
-                        <Col className='header-left'>
+                        <Col className='header-left' xs={5}>
                             <div className='logo'>
                                 <span><img src={MedaCoinLogo} alt='' /></span>
                                 <span className='header-left-name'>MEDABOTS</span>

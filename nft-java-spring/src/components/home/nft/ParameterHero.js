@@ -16,8 +16,11 @@ export default function ParameterHero(props) {
 
     return (
         <div className='parameter'>
-            <div className={"seperator " + props.class} style={{ width: width }}>
-            </div>
+            {width === '100%' ?
+                <div className={props.class} style={{ width: width }}></div> :
+                <div className={"seperator " + props.class} style={{ width: width }}>
+                </div>
+            }
         </div>
     )
 }

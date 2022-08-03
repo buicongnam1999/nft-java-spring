@@ -50,7 +50,7 @@
 
     position: relative;
     width: 25%;
-    height: auto;
+    height: 400px;
     text-transform: uppercase;
     color: white;
     margin: 10px auto;
@@ -81,6 +81,46 @@
 }
 .hero-info {
     width: 70%;
+    &-fill {
+        background: none;
+        .hero {
+            &-name, &-age, &-geisha {
+                font-family: Odibee Sans;
+                font-size: 24px;
+            }
+            &-name {
+                color: #45D9FC;
+            }
+            &-geisha {
+                font-family: Biger Over;
+            }
+        }
+        span {
+            margin-top: 5px;
+            padding: 5px 10px;
+        }
+    }
+    .card-info-elemnt {
+        display: flex;
+        .property-name {
+            padding: 0 5px;
+        }
+    }
+    .price-element {
+
+    }
+    .detail-time {
+        &-text {
+            padding: 10px 16px;
+            font-size: 20px;
+        }
+
+        &-info {
+            .time-info {
+                
+            }
+        }
+    }
 }
 @keyframes moveGradient {
     50% {
