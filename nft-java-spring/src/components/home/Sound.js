@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SoundFile from 'assets/music/Powerful-Trap.mp3';
 
 export default function Sound() {
-    // const audioTune = new Audio(SoundFile);
-    // const [playInLoop, setPlayInLoop] = useState(false);
+    const audioTune = new Audio(SoundFile);
+    const [playInLoop, setPlayInLoop] = useState(false);
     // useEffect(() => {
     //     audioTune.load();
     //     audioTune.play();
@@ -14,7 +14,7 @@ export default function Sound() {
     // }, [playInLoop])
     return (
         <div style={{display: 'none'}}>
-            {/* <iframe id="video-player" className="video" width="560" height="315" src={SoundFile} allow="autoplay"></iframe> */}
+            <iframe id="video-player" className="video" width="560" height="315" src={SoundFile} allow="autoplay"></iframe>
         </div>
     )
 }

@@ -132,7 +132,7 @@ $colorBlack: #08090C;
     background: #e7e7e7;
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (max-width: 1920px) {
     .btn {
         padding: 14px 28px !important;
         font-size: 16px;
@@ -144,7 +144,7 @@ $colorBlack: #08090C;
     }
 }
 
-@media screen and (min-width: 1520px) {
+@media screen and (max-width: 1520px) {
     .btn {
         font-size: 13px;
         &-pieces, &-complete  {

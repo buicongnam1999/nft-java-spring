@@ -104,6 +104,14 @@ export default function Header(props) {
         </ul>
     }
 
+    const gotoLogin = () => {
+        const newState = navbarArr.map((e) => {
+            return { ...e, active: false }
+        });
+        setNavbar(newState);
+        navigate('/login');
+    }
+
     return (
         <div className='header'>
             <div className='header-content'>
@@ -120,21 +128,20 @@ export default function Header(props) {
                                 {renderNav(navbar)}
                             </div>
                             <div className='user'>
-                                {
-                                    user !== undefined ?
-                                        <div className=''>
-                                            <div className='logo-user'>
-                                                <img src='' alt='' />
-                                            </div>
-                                            <div className='info-user'>
-                                                <span>
-                                                    {user}
-                                                </span>
-                                            </div>
-                                        </div> :
-                                        <div className='login'>
-                                            <ButtonDanger onClick={() => { }}>{props.t('Sign In')}</ButtonDanger>
+                                {user !== undefined ?
+                                    <div className=''>
+                                        <div className='logo-user'>
+                                            <img src='' alt='' />
                                         </div>
+                                        <div className='info-user'>
+                                            <span>
+                                                {user}
+                                            </span>
+                                        </div>
+                                    </div> :
+                                    <div className='login'>
+                                        <ButtonDanger method={gotoLogin}>{props.t('Sign In')}</ButtonDanger>
+                                    </div>
                                 }
                             </div>
                             <div className='navbar-icon'>
