@@ -9,7 +9,8 @@ $font-odibee: Odibee Sans;
     padding-bottom: 25px;
 
     .market-content {
-        margin-top: 25px;
+        margin: 25px auto;
+        width: 80%;
 
         .btn-group-market {
             // border-bottom: 2px solid #2c2d3a;
@@ -208,29 +209,12 @@ $font-odibee: Odibee Sans;
         padding-bottom: 25px;
     
         .market-content {
-            margin-top: 25px;
-    
             .btn-group-market {
-                // border-bottom: 2px solid #2c2d3a;
                 .btn-group-search {
                     width: 85%;
                     display: grid;
                     column-gap: 20px;
                     grid-template-columns: auto auto;
-                }
-    
-                @media screen and (max-width: 1520px) {
-                    .btn-group-search {
-                        width: 60%;
-                        column-gap: 15px;
-                    }
-                }
-    
-                @media screen and (max-width: 1200px) {
-                    .btn-group-search {
-                        width: 80%;
-                        column-gap: 10px;
-                    }
                 }
     
                 .btn-group {
@@ -393,6 +377,10 @@ $font-odibee: Odibee Sans;
                 .btn-group {
                     width: 100%;
                 }
+                .btn-group-search {
+                    width: 60%;
+                    column-gap: 15px;
+                }
             }
 
             .market-list {
@@ -411,6 +399,19 @@ $font-odibee: Odibee Sans;
             .list {
                 width: 100%;
                 margin: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .market {
+        .market-content {
+            .btn-group-market {
+                .btn-group-search {
+                    width: 80%;
+                    column-gap: 10px;
+                }
             }
         }
     }
@@ -504,8 +505,4 @@ $font-odibee: Odibee Sans;
             }
         }
     }
-}
-
-@media screen and (min-width: 360px) {
-    
 }

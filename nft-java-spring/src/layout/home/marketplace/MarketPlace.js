@@ -18,7 +18,7 @@ import { useDispatch } from 'react-redux';
 import * as marketActions from 'actions/market';
 import MarketPage from 'components/home/marketplace/MarketPage';
 import ModalLoad from 'components/modal/ModalLoad';
-import InputSlider from 'components/home/inputs/InputSlider';
+import ModalAccept from 'components/modal/AcceptOffer/ModalAccept';
 
 export default function MarketPlace() {
     const [defaultSelect, setDefaultSelect] = useState(0);
@@ -27,6 +27,7 @@ export default function MarketPlace() {
     const pageStatusTmp = Storage.get('pageStatusMarket');
     const [nfts, setNfts] = useState();
     const [numberButtons, setNumberButtons] = useState();
+    const [showAcceptModal, setShowAcceptModal] = useState(false);
     const [filter, setFilter] = useState(
         pageStatusTmp !== null ? pageStatusTmp : 0
     )
@@ -67,37 +68,11 @@ export default function MarketPlace() {
             loadCountNft();
         }
     },
-        [
-            filter,
-            nfts,
-            // countNft
-        ])
-
-    useEffect(() => {
-        const loadData = async () => {
-            let result = await marketActions.fetchItemList(filter);
-            if (result !== undefined && result.status) {
-                const items = result.data;
-                setNfts(items);
-            }
-        }
-        const loadCountNft = async () => {
-            let result = await marketActions.fetchItemCount();
-            if (result !== undefined && result.status) {
-                let page = Math.ceil(result.data / 8);
-                setNumberButtons(page);
-            }
-        }
-        return () => {
-            loadData();
-            loadCountNft();
-        }
-    },
-        [
-            filter,
-            nfts,
-            // countNft
-        ])
+    [
+        filter,
+        nfts,
+        // countNft
+    ])
 
     const checkBox = (name) => {
         if (name) {
@@ -121,14 +96,11 @@ export default function MarketPlace() {
         setFilter(page);
     }
 
-    const nextPage = (page) => {
-        setFilter(page);
-    }
-
     return (
         <>
             <div className="market">
-                {/* <ModalLoad showModal={showModal} onCloseModal={() => setShowModal(false)} /> */}
+                <ModalLoad showModal={showModal} onCloseModal={() => setShowModal(false)} />
+                {showAcceptModal&& <ModalAccept closeModal={setShowAcceptModal}/>}
                 <Banner />
                 <div className='market-content'>
                     <Container>

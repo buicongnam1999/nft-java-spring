@@ -98,9 +98,6 @@ export const routeMarket = [
     },
 ]
 
-export const ToastAlert = [
-
-
 export const ToastAlert = [];
 
 export const sortList = [
