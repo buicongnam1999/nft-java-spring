@@ -99,7 +99,7 @@ export default function MarketPlace() {
     return (
         <>
             <div className="market">
-                <ModalLoad showModal={showModal} onCloseModal={() => setShowModal(false)} />
+                {showModal&& <ModalLoad showModal={showModal} onCloseModal={() => setShowModal(false)} />}
                 {showAcceptModal&& <ModalAccept closeModal={setShowAcceptModal}/>}
                 <Banner />
                 <div className='market-content'>

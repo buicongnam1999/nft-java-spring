@@ -1,12 +1,12 @@
 .search {
     margin: 20px 0;
-    width: 320px;
+    width: 100%;
     border-radius: 8px;
     height: 60px;
     background: #1e1f28;
     &-input {
         display: flex;
-        width: 320px;
+        width: 100%;
         &-icon {
             margin-left: 15px;
             line-height: 55px;
@@ -17,7 +17,7 @@
                 font-family: Odibee Sans;
                 font-weight: 400px;
                 font-size: 20px;
-                width: 120%;
+                width: 100%;
                 border: none;
                 background-color: #1e1f28;
                 line-height: 60px;
