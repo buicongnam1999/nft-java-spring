@@ -3,7 +3,7 @@
     color: white;
     background-color: rgb(49, 48, 58);
     .header-content {
-        @media screen and (min-width: 1920px) {
+        @media screen and (max-width: 1920px) {
             .container {
                 padding: 0;
                 margin: 0;
@@ -86,11 +86,14 @@
                     display: block;
                 }
             }
+            .navbar-icon {
+                display: none;
+            }
         }
     }
 }
 
-@media screen and (min-width: 1520px) {
+@media screen and (max-width: 1520px) {
     .header {
         &-content {
             .header-left {

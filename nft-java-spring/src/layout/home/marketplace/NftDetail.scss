@@ -44,41 +44,58 @@
 }
 .hero {
     display: flex;
-}
-.hero-image {
-    --border-width: 3px;
+    width: 100%;
 
-    position: relative;
-    width: 25%;
-    height: 400px;
-    text-transform: uppercase;
-    color: white;
-    margin: 10px auto;
-    text-align: center;
-    font-family: cursive;
-    font-size: 24px;
-    border-radius: 3px;
-    min-height: 3em;
-    resize: both;
-    background: #08090C;
-
-    &::before {
-        position: absolute;
-        inset: 0;
-        border-radius: 3px;
-        padding: 2px;
-        background: linear-gradient(45deg, #f25ac9, #45d9fc, #5846f9);
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        pointer-events: none;
+    .hero-left {
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+        &-thumbnail {
+            .hero-image-detail {
+                --border-width: 3px;
+            
+                position: relative;
+                width: 90%;
+                height: 370px;
+                text-transform: uppercase;
+                color: white;
+                // margin: 10px auto;
+                text-align: center;
+                font-family: cursive;
+                font-size: 24px;
+                border-radius: 3px;
+                min-height: 3em;
+                resize: both;
+                background: #08090C;
+            
+                &::before {
+                    position: absolute;
+                    inset: 0;
+                    border-radius: 3px;
+                    padding: 2px;
+                    background: linear-gradient(45deg, #f25ac9, #45d9fc, #5846f9);
+                    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                    -webkit-mask-composite: xor;
+                    mask-composite: exclude;
+                    pointer-events: none;
+                }
+            
+                .hero-thumbnail {
+                    img {
+                        width: 300px;
+                        height: 350px;
+                    }
+                }
+                
+            }
+            .hero-skill-image {
+                display: flex;
+                margin-top: 25px;
+            }
+        }
     }
-
-    img {
-        width: 300px;
-        height: 350px;
-    }
 }
+
 .hero-info {
     width: 70%;
     &-fill {
@@ -100,14 +117,26 @@
             padding: 5px 10px;
         }
     }
-    .card-info-elemnt {
-        display: flex;
-        .property-name {
-            padding: 0 5px;
+    .card-info {
+        font-size: 20px;
+        background: #474554;
+        margin-bottom: 10px;
+        &-background {
+            border-radius: 8px;
+            background: #08090C;
+            padding: 30px 0;
+        }
+        &-elemnt {
+            display: flex;
+            width: 95%;
+            padding: 5px;
+            .property-name {
+                padding: 0 15px;
+            }
         }
     }
     .price-element {
-
+        font-size: 20px;
     }
     .detail-time {
         &-text {
@@ -117,13 +146,87 @@
 
         &-info {
             .time-info {
-                
+                background: #08090C;
+            }
+        }
+    }
+    .detail-time-info {
+        font-family: Odibee Sans;
+        width: 100%;
+        background: #08090C;
+        font-size: 20px;
+        .time-info {
+            width: 100%;
+            border-radius: 8px;
+            margin: 25px auto;
+            padding: 30px 25px;
+            .time-buy, .time-top {
+                padding: 0 15px;
             }
         }
     }
 }
+
 @keyframes moveGradient {
     50% {
         background-position: 100% 50%;
+    }
+}
+
+@media screen and (max-width: 1720px) {
+    .hero {
+        .hero-left {
+            &-thumbnail {
+                .hero-image-detail {
+                    height: 350px;
+                    .hero-thumbnail {
+                        img {
+                            width: 250px;
+                            height: 300px;
+                        }
+                    }
+                    
+                }
+                .hero-skill-image {
+                    display: flex;
+                    margin-top: 25px;
+                    .skill-element {
+                        img {
+                            width: 160px;
+                            height: 220px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1520px) {
+    .hero {
+        .hero-left {
+            &-thumbnail {
+                .hero-image-detail {
+                    height: 255px;
+                    .hero-thumbnail {
+                        img {
+                            width: 200px;
+                            height: 230px;
+                        }
+                    }
+                    
+                }
+                .hero-skill-image {
+                    display: flex;
+                    margin-top: 25px;
+                    .skill-element {
+                        img {
+                            width: 140px;
+                            height: 180px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
