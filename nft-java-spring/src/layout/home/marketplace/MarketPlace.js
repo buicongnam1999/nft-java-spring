@@ -32,20 +32,46 @@ export default function MarketPlace() {
     )
     const selectOption = (value) => {
         setDefaultSelect(value);
-    }
+    };
 
     const openOrCloseNav = (name) => {
         if (name) {
-            const newState = navbar.map(object => {
+            const newState = navbar.map((object) => {
                 if (object.name === name) {
-                    return { ...object, active: !object.active }
+                    return { ...object, active: !object.active };
                 }
 
                 return object;
             });
             setNavbar(newState);
         }
-    }
+    };
+
+    useEffect(() => {
+        const loadData = async () => {
+            let result = await marketActions.fetchItemList(filter);
+            if (result !== undefined && result.status) {
+                const items = result.data;
+                setNfts(items);
+            }
+        }
+        const loadCountNft = async () => {
+            let result = await marketActions.fetchItemCount();
+            if (result !== undefined && result.status) {
+                let page = Math.ceil(result.data / 8);
+                setNumberButtons(page);
+            }
+        }
+        return () => {
+            loadData();
+            loadCountNft();
+        }
+    },
+        [
+            filter,
+            nfts,
+            // countNft
+        ])
 
     useEffect(() => {
         const loadData = async () => {
@@ -82,13 +108,17 @@ export default function MarketPlace() {
                             return { ...e, activeChild: true };
                         }
                         return e;
-                    })
+                    });
                 }
 
                 return object;
             });
             setNavbar(state);
         }
+    };
+
+    const nextPage = (page) => {
+        setFilter(page);
     }
 
     const nextPage = (page) => {
@@ -97,19 +127,19 @@ export default function MarketPlace() {
 
     return (
         <>
-            <div className='market'>
-                <ModalLoad showModal={showModal} onCloseModal={() => setShowModal(false)} />
+            <div className="market">
+                {/* <ModalLoad showModal={showModal} onCloseModal={() => setShowModal(false)} /> */}
                 <Banner />
                 <div className='market-content'>
                     <Container>
                         <Row>
                             <Col xs={3}>
-                                <div className='btn-group-market'>
-                                    <div className='btn-group-search'>
+                                <div className="btn-group-market">
+                                    <div className="btn-group-search">
                                         <ButtonPieces />
                                         <ButtonComplete />
                                     </div>
-                                    <div className='btn-group'></div>
+                                    <div className="btn-group"></div>
                                     <ButtonResetMarket />
                                 </div>
                                 <Search />
@@ -118,15 +148,11 @@ export default function MarketPlace() {
                                 </div>
                             </Col>
                             <Col>
-                                <div className='market-list'>
-                                    <div className='title-list'>
-                                        Pieces list
-                                    </div>
-                                    <div className='market-sort'>
-                                        <div className='market-sort-text'>
-                                            Sort by
-                                        </div>
-                                        <div className='market-sort-select'>
+                                <div className="market-list">
+                                    <div className="title-list">Pieces list</div>
+                                    <div className="market-sort">
+                                        <div className="market-sort-text">Sort by</div>
+                                        <div className="market-sort-select">
                                             <SelectMarket sortList={sortList} selectOption={(e) => selectOption(e)} />
                                         </div>
                                     </div>
@@ -165,5 +191,5 @@ export default function MarketPlace() {
                 </div>
             </div>
         </>
-    )
+    );
 }

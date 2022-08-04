@@ -1,8 +1,8 @@
-@import "~bootstrap/scss/bootstrap";
-@import url("http://fonts.cdnfonts.com/css/odibee-sans");
+@import '~bootstrap/scss/bootstrap';
+@import url('http://fonts.cdnfonts.com/css/odibee-sans');
 @font-face {
-    font-family: "Biger Over";
-    src: url("../fonts/bBigerOver.otf") format("opentype");
+    font-family: 'Biger Over';
+    src: url('../fonts/bBigerOver.otf') format('opentype');
 }
 * {
     margin: 0;
@@ -34,6 +34,11 @@
 
 $fontBiger: Biger Over;
 $fontOdibee: Odibee Sans;
+
+// Font-weight
+
+$fontWeight4: 400;
+
 $colorBlue: #45d9fc;
 $colorGray: #e4e2e2;
 $colorBlack: #08090c;
@@ -60,6 +65,7 @@ $colorBlack: #08090c;
 @media screen and (max-width: 575px) {
     .App {
         width: 100%;
+
     }
 }
 
