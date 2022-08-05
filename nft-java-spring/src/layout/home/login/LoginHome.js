@@ -13,20 +13,20 @@ export default function LoginHome() {
                     <h1 className="animated fadeInUp animate1" id="title-login" style={{ fontFamily: 'Odibee Sans'}}>Welcome Back !</h1>
                     <h1 className="animated fadeInUp animate1 hidden" id="title-signup" style={{ fontFamily: 'Odibee Sans'}}>Welcome !</h1>
                     <fieldset id="login-fieldset">
-                        <input className="login animated fadeInUp animate2" name="username" type="textbox"  required   placeholder="Username" value=""/>
-                        <input className="login animated fadeInUp animate3" name="password" type="password" required placeholder="Password" value=""/>
+                        <input style={{display: 'block'}} className="login animated fadeInUp animate2" name="username" type="textbox" placeholder="Username"/>
+                        <input style={{display: 'block'}} className="login animated fadeInUp animate3" name="password" type="password" placeholder="Password"/>
                     </fieldset>
-                    <fieldset id="signup-fieldset" class="hidden">
-                        <input className="login animated fadeInUp animate2" name="username" type="textbox"  required   placeholder="Username" value=""/>
-                        <input className="login animated fadeInUp animate3" name="password" type="password" placeholder="Choose password"  required  value=""/>
+                    <fieldset id="signup-fieldset" className="hidden">
+                        <input className="login animated fadeInUp animate2" name="username" type="textbox" placeholder="Username"/>
+                        <input className="login animated fadeInUp animate3" name="password" type="password" placeholder="Choose password"/>
                     </fieldset>
                     <div>
                         <div style={{ fontFamily: 'Odibee Sans'}}>
-                            <input style={{ fontFamily: 'Odibee Sans'}} type="submit" id="login-form-submit" className="login_form button animated fadeInUp animate4" value="Log in"/>
-                            <input style={{ fontFamily: 'Odibee Sans'}} type="submit" id="signup-form-submit" className="login_form button animated fadeInUp animate4 hidden" value="Sign up"/>
+                            <input style={{ fontFamily: 'Odibee Sans', display: 'block'}} type="submit" id="login-form-submit" className="login_form button animated fadeInUp animate4" value="Log in"/>
+                            {/* <input style={{ fontFamily: 'Odibee Sans', display: 'block'}} type="submit" id="signup-form-submit" className="login_form button animated fadeInUp animate4" value="Sign up"/> */}
                         </div>
                     </div>
-                    <p><a id="lost-password-link" href="" className="animated fadeIn animate5" style={{ fontFamily: 'Odibee Sans'}}>I forgot my  login or password (!)</a></p>
+                    <p className='forgot-account'><a id="lost-password-link" href="" className="animated fadeIn animate5" style={{ fontFamily: 'Odibee Sans'}}>I forgot my  login or password (!)</a></p>
                 </form>
             </div>
         </div>

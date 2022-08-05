@@ -29,6 +29,7 @@
     "redux-thunk": "^2.4.1",
     "sass": "^1.53.0",
     "sweetpagination": "^1.0.15",
+    "use-animate-presence": "^0.5.2",
     "web-vitals": "^2.1.4",
     "yarn": "^1.22.19"
   },

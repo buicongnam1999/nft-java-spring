@@ -3,7 +3,6 @@ import Modal from 'react-bootstrap/Modal';
 import './Modal.scss'
 
 export default function ModalLoad(props) {
-    const number = 7;
     return (
         <div className='modal-load'>
             <Modal

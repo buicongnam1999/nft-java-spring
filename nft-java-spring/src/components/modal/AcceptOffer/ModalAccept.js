@@ -5,23 +5,23 @@ import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import Hero from '../../../assets/images/icon/MedaCoinIcon-3.svg';
 import './ModalAccept.scss';
 
-const ModalAccept = ({ closeModal }) => {
+const ModalAccept = (props) => {
     const [acceptStatus, setAcceptStatus] = useState(false);
 
     const handleAcceptClick = () => {
-        setAcceptStatus(true);
+        props.closeModal(false);
     };
 
     return (
         <div className="modal-wrapper">
-            <div className="modal-background"></div>
+            <div className="modal-background" onClick={() => handleAcceptClick()}></div>
             <div className="modal-container">
                 <div className="modal-inner">
                     <header className="modal-header">
                         <h3 className="modal-header__text">
                             {acceptStatus ? 'YOUR SALE IS PROCESSING!' : 'ACCEPT THIS OFFER'}
                         </h3>
-                        <button className="modal-header__icon">
+                        <button className="modal-header__icon" onClick={() => handleAcceptClick()}>
                             <FontAwesomeIcon icon={faCircleXmark} />
                         </button>
                     </header>
@@ -75,7 +75,7 @@ const ModalAccept = ({ closeModal }) => {
                             <div className="modal-bottom-content">
                                 <div className="modal-bottom-content__fee">
                                     <span className="modal-bottom-content__fee-name">Metabots Fee</span>
-                                    <spam className="modal-bottom-content__fee-percent">2.5%</spam>
+                                    <span className="modal-bottom-content__fee-percent">2.5%</span>
                                 </div>
                                 <div className="modal-bottom-content__total">TOTAL EARNINGS</div>
                             </div>
@@ -85,12 +85,12 @@ const ModalAccept = ({ closeModal }) => {
                         <div className="modal-footer--accept">
                             <div className="modal-footer-content__fee">
                                 <span className="modal-footer-content__fee-name">STATUS</span>
-                                <spam className="modal-footer-content__fee-percent">Transaction Hash</spam>
+                                <span className="modal-footer-content__fee-percent">Transaction Hash</span>
                             </div>
 
                             <div className="modal-footer__info--accept">
                                 <div className="modal-footer__info-left">
-                                    <div class="lds-spinner">
+                                    <div className="lds-spinner">
                                         <div></div>
                                         <div></div>
                                         <div></div>
@@ -126,7 +126,7 @@ const ModalAccept = ({ closeModal }) => {
                                 </div>
                             </div>
                             <div className="modal-footer__accept">
-                                <button className="modal-footer__accept-btn" onClick={handleAcceptClick}>
+                                <button className="modal-footer__accept-btn" onClick={() => setAcceptStatus(true)}>
                                     ACCEPT
                                 </button>
                             </div>
