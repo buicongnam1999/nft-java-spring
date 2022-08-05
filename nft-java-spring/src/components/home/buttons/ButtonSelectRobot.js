@@ -5,7 +5,7 @@ export default function ButtonSelectRobot(props) {
     const history = useNavigate();
     const loadData = (id) => {
         props.showModal(false);
-        history('/market/nft-detail/'+id);
+        history(`/market/nft-detail/${id}`);
     }
     const gotoDetail = (id) => {
         props.showModal(true);

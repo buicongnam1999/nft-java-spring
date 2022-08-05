@@ -7,8 +7,9 @@
     background-repeat:no-repeat;
     background-position: top center;
     background-size: cover;
+    margin: 0 auto;
 
-    form{
+    form {
         height: 700px;
         padding: 50px;
     }
@@ -17,7 +18,7 @@
         cursor: pointer;
     }
     
-    form h1{
+    form h1 {
         color: #fff;
         font-family: 'Open Sans', sans-serif;
         text-transform: uppercase;
@@ -25,17 +26,23 @@
         letter-spacing: 4px;
         margin: 50px 0;
         font-size: 1.7em;
+        text-align: center;
     }
 
     p , a{
         margin: 0;
         padding: 0;
+        text-align: center;
     }
     
     a{
         color: #898787;
         font-size: 0.7em;
         text-decoration: none;
+    }
+
+    .forgot-account {
+        font-size: 25px;
     }
 }
 
@@ -51,6 +58,7 @@
 .panel-switch{
     text-align: center;
     margin-top: 30px;
+    font-size: 20px;
 }
 
 .panel-switch button{
@@ -171,12 +179,12 @@ fieldset input:focus {
     margin: 9px 0;
 }
 
-.login_form{
+.login_form {
     position: relative;
     bottom:0;
     width: 70%;
     height: 4em;
-    margin-top: 150px;
+    margin: 150px auto 0;
     border: none;
     border-radius: 10em;
     background: #f03699;

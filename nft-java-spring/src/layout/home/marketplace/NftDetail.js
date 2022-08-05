@@ -3,7 +3,6 @@ import OfferDetail from 'components/home/nft/OfferDetail';
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import './NftDetail.scss';
-import Hero from 'assets/images/big/hero/Hero.png';
 import * as marketActions from 'actions/market';
 import InfoElement from 'components/home/nft/InfoElement';
 import Skill from 'assets/images/skill/Skill.png';
@@ -95,16 +94,16 @@ export default function NftDetail() {
                                                     </div>
                                                     <div className='card-info-background'>
                                                         <span style={{ color: '#55CCCC' }}>
-                                                            <InfoElement name="LIFE" number={nft.nft.nftLife} icon="fa-solid fa-heart" color="#55CCCC" class="gradient-hero-blue" />
+                                                            <InfoElement name="LIFE" number={nft.nft.nftLife} icon="fa-solid fa-heart" color="#55CCCC" className="gradient-hero-blue" />
                                                         </span>
                                                         <span>
-                                                            <InfoElement name="ATT" number={nft.nft.nftAttack} icon="fa-solid fa-bolt" color="#FFE144" class="gradient-hero-yellow" />
+                                                            <InfoElement name="ATT" number={nft.nft.nftAttack} icon="fa-solid fa-bolt" color="#FFE144" className="gradient-hero-yellow" />
                                                         </span>
                                                         <span>
-                                                            <InfoElement name="DEF" number={nft.nft.nftDef} icon="fa-solid fa-shield" color="#5846F9" class="gradient-hero-violet" />
+                                                            <InfoElement name="DEF" number={nft.nft.nftDef} icon="fa-solid fa-shield" color="#5846F9" className="gradient-hero-violet" />
                                                         </span>
                                                         <span>
-                                                            <InfoElement name="SPE" number={nft.nft.nftSpeed} icon="fa-solid fa-gauge-simple" color="#F25AC9" class="gradient-hero-pink" />
+                                                            <InfoElement name="SPE" number={nft.nft.nftSpeed} icon="fa-solid fa-gauge-simple" color="#F25AC9" className="gradient-hero-pink" />
                                                         </span>
                                                     </div>
                                                 </div>
@@ -121,7 +120,7 @@ export default function NftDetail() {
                                                 <div className='detail-time-info' style={{ background: '#474554' }}>
                                                     <div className='time-info'>
                                                         <div className='time-buy'>
-                                                            <i class='far fa-clock'></i> Sale ends <span style={{color: '#F25AC9'}}></span> at <span style={{color: '#F25AC9'}}></span>
+                                                            <i className='far fa-clock'></i> Sale ends <span style={{color: '#F25AC9'}}></span> at <span style={{color: '#F25AC9'}}></span>
                                                         </div>
                                                         <div className='time-top'>
                                                             Top bid -- Reserve price not met.

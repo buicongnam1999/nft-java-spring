@@ -14,7 +14,7 @@ export default function Sound() {
     // }, [playInLoop])
     return (
         <div style={{display: 'none'}}>
-            <iframe id="video-player" className="video" width="560" height="315" src={SoundFile} allow="autoplay"></iframe>
+            {/* <iframe id="video-player" className="video" width="560" height="315" src={SoundFile} allow="autoplay"></iframe> */}
         </div>
     )
 }

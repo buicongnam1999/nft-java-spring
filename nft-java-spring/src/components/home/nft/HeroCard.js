@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import './HeroCard.scss';
-import Hero from 'assets/images/hero/Hero.png';
 import InfoElement from './InfoElement';
 import MedaCoinIcon from 'assets/images/icon/MedaCoinIcon.png';
 import ButtonSelectRobot from '../buttons/ButtonSelectRobot';
@@ -13,9 +12,11 @@ export default function HeroCard(props) {
         }
     }, [])
 
-    const showDetaiNft = () => {
-
+    const onClickBuy = (value) => {
+        console.log(value);
+        props.setShowAcceptModal(value);
     }
+
     return (
         <div className='card-market'>
             <div className='card-market-hero'>
@@ -55,7 +56,7 @@ export default function HeroCard(props) {
             </div>
             <div className='card-button'>
                 <ButtonSelectRobot font="Odibee Sans" width="40%" showModal={props.showModal} nftId={props.nft.id}>Details</ButtonSelectRobot>
-                <ButtonBuy font="Odibee Sans" width="40%" showModal={props.showModal}>Buy Now</ButtonBuy>
+                <ButtonBuy font="Odibee Sans" width="40%" setShowAcceptModal={onClickBuy}>Buy Now</ButtonBuy>
             </div>
         </div>
     )

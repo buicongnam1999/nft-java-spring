@@ -142,6 +142,7 @@ export default function MarketPlace() {
                                                     nftDef={nft.nft.nftDef}
                                                     nftSpeed={nft.nft.nftSpeed}
                                                     nft={nft.nft}
+                                                    setShowAcceptModal={setShowAcceptModal}
                                                 />
                                             )}
                                         </div>
