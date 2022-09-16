@@ -19,18 +19,20 @@ import * as marketActions from 'actions/market';
 import MarketPage from 'components/home/marketplace/MarketPage';
 import ModalLoad from 'components/modal/ModalLoad';
 import ModalAccept from 'components/modal/AcceptOffer/ModalAccept';
+import axios from "axios";
 
 export default function MarketPlace() {
     const [defaultSelect, setDefaultSelect] = useState(0);
     const [navbar, setNavbar] = useState(navbarMarket);
     const [showModal, setShowModal] = useState(false);
     const pageStatusTmp = Storage.get('pageStatusMarket');
+    const user = Storage.get('PeopleStack');
     const [nfts, setNfts] = useState();
     const [numberButtons, setNumberButtons] = useState();
     const [showAcceptModal, setShowAcceptModal] = useState(false);
     const [filter, setFilter] = useState(
         pageStatusTmp !== null ? pageStatusTmp : 0
-    )
+    );
     const selectOption = (value) => {
         setDefaultSelect(value);
     };
@@ -49,6 +51,27 @@ export default function MarketPlace() {
     };
 
     useEffect(() => {
+        
+    
+        return () => {
+            
+        }
+    }, [])
+    
+
+    useEffect(() => {
+        const getToken = async () => {
+            if (!user) {
+                let userMarket = {
+                    "username": "market",
+                    "password": "market"
+                }
+                let result = await marketActions.getToken(userMarket);
+                if (result !== undefined) {
+                    Storage.set("token", result.token);
+                }
+            }
+        }
         const loadData = async () => {
             let result = await marketActions.fetchItemList(filter);
             if (result !== undefined && result.status) {
@@ -63,9 +86,24 @@ export default function MarketPlace() {
                 setNumberButtons(page);
             }
         }
+
+        // const load = async () => {
+        //     const api = "http://localhost:80/api/v1/marketplace/nft-sale";
+        //     axios.get(api, { 
+        //         headers: {
+        //             "Authorization" : `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXJrZXQiLCJleHAiOjE2NjA3MjIzMzYsImlhdCI6MTY2MDcwNDMzNn0.CgXvq_3z0TewAV_uAb9RS5C5P2OGWEFKPTGta5exIzovAN-sy12eWBXXFRp37nu6YGWhyo5bmNwZ4o-7GxskTQ`,
+        //             "Access-Control-Allow-Origin": "*"
+        //         }
+        //     })
+        //     .then(res => {
+        //         console.log(res.data);
+        //     })
+        // }
         return () => {
+            getToken();
             loadData();
             loadCountNft();
+            // load();
         }
     },
     [
@@ -73,7 +111,7 @@ export default function MarketPlace() {
         nfts,
         // countNft
     ])
-
+    
     const checkBox = (name) => {
         if (name) {
             const state = navbar.map(object => {

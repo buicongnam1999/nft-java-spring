@@ -480,7 +480,7 @@ $font-odibee: Odibee Sans;
     }
 }
 
-@media screen and (max-width: 412px) {
+@media screen and (max-width: 414px) {
     .market {
         .market-content {
             .market-list {
@@ -501,6 +501,18 @@ $font-odibee: Odibee Sans;
                 &-nft {
                     width: 100%;
                     margin: 0;
+                }
+            }
+            .not-nft {
+                height: auto;
+                &-img {
+                    img {
+                        width: 200px;
+                        height: 150px;
+                    }
+                }
+                &-text {
+                    padding-bottom: 300px;
                 }
             }
         }

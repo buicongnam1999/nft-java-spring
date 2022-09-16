@@ -7,12 +7,17 @@ import Col from 'react-bootstrap/Col';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import MenuIcon from 'assets/images/icon/menu-icon.png';
 import MedaCoinLogo from 'assets/images/logo/MedaCoinLogo.png';
+import Storage from 'ultis/storage';
 
 export default function Header(props) {
     const navigate = useNavigate();
     const location = useLocation();
     const [user, setUser] = useState(null);
-    // const [currentPath, setCurrentPath] = useState(location.pathname);
+    const token = Storage.get('token');
+    const [login, setLogin] = useState(false);
+    const [tokenApi, setTokenApi] = useState(
+        token !== null? token: ""
+    )
     const navbarArr = [
         {
             name: "Home",
@@ -61,8 +66,23 @@ export default function Header(props) {
             }
         }
 
+        function checkToken() {
+            if (tokenApi) {
+                setLogin(true);
+            }
+        }
+
+        const handleTabClose = event => {
+            event.preventDefault();
+            return Storage.clear();
+        };
+
+        window.addEventListener('beforeunload', handleTabClose);
+
         return () => {
             loadLocation();
+            checkToken();
+            window.removeEventListener('beforeunload', handleTabClose);
         }
     }, [])
 
@@ -128,7 +148,7 @@ export default function Header(props) {
                                 {renderNav(navbar)}
                             </div>
                             <div className='user'>
-                                {user !== undefined ?
+                                {login?
                                     <div className=''>
                                         <div className='logo-user'>
                                             <img src='' alt='' />
