@@ -5,10 +5,10 @@ import { connectRouter } from "connected-react-router";
 // import common from "./common/commonReducer";
 
 const rootReducer = (history) =>
-  combineReducers({
-    router: connectRouter(history),
-    // user: userReducer,
-    // common,
-  });
+    combineReducers({
+      router: connectRouter(history),
+      // user: userReducer,
+      // common,
+    });
 
 export default rootReducer;

@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './LoginHome.scss';
 import { useForm } from "react-hook-form";
+import Storage from 'ultis/storage';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginHome() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+    const token = Storage.get('token');
+    const [tokenApi, setTokenApi] = useState(
+        token !== null? token: ""
+    )
     const onSubmit = data =>  {
         console.log(data);
     }
 
+    useEffect(() => {
+        const checkToken = () => {
+            if (tokenApi) {
+                navigate("/");
+            }
+        }
+    
+        return () => {
+            checkToken();
+        }
+    }, [])
+
     return (
-        <div style={{background: '#08090c', padding: '50px',}}>
+        <div className='login-padding'>
            <div className="panel shadow1">
                 <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
                     <div className="panel-switch animated fadeIn">
@@ -26,7 +45,7 @@ export default function LoginHome() {
                             placeholder="Username"
                             {...register("username", { required: true, min: 1, max: 50 })}
                         />
-                        {errors.username?.type === 'required' && "Username is required"}
+                        <p style={{color: 'red'}}>{errors.username?.type === 'required' && "Username is required"}</p>
                         <input style={{display: 'block'}} 
                             className="login animated fadeInUp animate3" 
                             name="password" 
@@ -34,7 +53,7 @@ export default function LoginHome() {
                             placeholder="Password"
                             {...register("password", { required: true, min: 8, max: 50 })}
                         />
-                        {errors.password?.type === 'required' && "Password is required"}
+                        <p style={{color: 'red'}}>{errors.password?.type === 'required' && "Password is required"}</p>
                     </fieldset>
                     <fieldset id="signup-fieldset" className="hidden">
                         <input className="login animated fadeInUp animate2" name="username" type="textbox" placeholder="Username"/>
